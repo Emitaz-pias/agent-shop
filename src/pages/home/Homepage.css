@@ -1,0 +1,9 @@
+.first-screen__title{
+    font-style: italic;
+    font-weight: 700;
+    font-size: 2.5em;
+    line-height: 47px;
+    text-transform: uppercase;
+    color: #FEBD02;
+    margin: 0 0 12px;
+}
