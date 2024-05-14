@@ -36,9 +36,14 @@ const Homepage = () => {
               <Box component='img' sx={{width:{xs:'100%',lg:'70%',md:'75%'}}} src={firstImm}></Box>
             </Grid>
           </Grid>
-          <Grid container >
-
+          <Grid container justifyContent={'space-around'} alignItems='center' border='1px solid red'>
+          {pointsArray.map(point =>
+          <Grid border='1px solid green' item lg={2} xs={10} md={6} >
+            <Box component='img' sx={{}} src={point.image} alt={point.title}  />
+            <Box component='p' sx={{fontWeight:'bold',textAlign:'center'}}>{point.title}</Box>
           </Grid>
+         )}
+          </Grid>        
         </div>
     );
 };
