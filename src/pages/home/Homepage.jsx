@@ -7,15 +7,15 @@ import { pointsArray } from './pointsArry';
 const Homepage = () => {
     return (
     <div>
-          <Container sx={{display:'inline-flex',alignItems:'center', flexWrap:{sm:'wrap-reverse',lg:'nowrap',xs:"wrap-reverse"}}}>
-            <Grid lg={2} md={6} sm={4}xs={4}>
-                <Box className='first-screen__title' component='h1'>
+          <Grid container sx={{display:'inline-flex',alignItems:'center',justifyContent:'center', flexWrap:{sm:'wrap-reverse',lg:'nowrap',md:'nowrap',xs:"wrap-reverse"}}}>
+            <Grid padding={'0.5em'} item lg={6} md={12}xs={12} >
+            <Box className='first-screen__title' component='h1'>
                 Make money with MelBet TeamCash!
                 </Box>
                 <Box component='p' sx={{fontWeight:'bolder'}}>
                 PARTNERING UP WITH AN INTERNATIONAL BOOKMAKER IS INCREDIBLY REWARDING. ACCEPT FUNDS, TOP UP ACCOUNTS, MAKE WITHDRAWALS FOR CUSTOMERS OR CREATE YOUR VERY OWN AGENT NETWORK AND EARN COMMISSION!
                 </Box>
-                <Button sx={{
+                <Button className="becomeAgentBttton" sx={{
                 marginRight:'2em',
                 backgroundColor: '#FEBD02',
                 borderRadius: '3px',
@@ -30,19 +30,15 @@ const Homepage = () => {
                 margin:'0.8em',
                 padding:'1em'          
               }}>BECOME AN AGENT</Button>
+
             </Grid>
-            <Grid  lg={10} md={6} sm={10}xs={10}>
-                <img  src={firstImm} alt="asd" />
+            <Grid padding={'0.5em'} item lg={6} md={12}xs={12} >
+              <Box component='img' sx={{width:{xs:'100%',lg:'70%',md:'75%'}}} src={firstImm}></Box>
             </Grid>
-          </Container>
-          <Container>
-              {pointsArray.map((point )=>
-               <Box sx={{display:'inline-flex'}}>
-                <Box>
-                <Box component={'img'} src={point.image}></Box></Box></Box>
-              )}
-          </Container>
-            
+          </Grid>
+          <Grid container >
+
+          </Grid>
         </div>
     );
 };
