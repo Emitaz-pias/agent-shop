@@ -12,7 +12,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png'
-import { Button } from '@mui/material';
 import ReactFlagsSelect from 'react-flags-select';
 
 import './Navbar.css'
