@@ -13,7 +13,6 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png'
 import ReactFlagsSelect from 'react-flags-select';
-
 import './Navbar.css'
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -33,7 +32,7 @@ function ElevationScroll(props) {
 }
 
 const Navbar = (props) => {
-  const [, setAnchorEl] = useState(null);
+  const [,setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const [select, setSelect] = useState("GB");
@@ -60,69 +59,56 @@ const Navbar = (props) => {
         horizontal: 'right',
       }}
       id={mobileMenuId}
-      keepMounted
       transformOrigin={{
         vertical: 'top',
-        horizontal: 'right',
+        horizontal: 'left',
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
       <Box sx={{ padding: '0.1em' }} onClick={handleMenuClose}><CloseIcon /></Box>
-
+      <MenuItem> <Link style={{ textDecoration: "none", color: 'black', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='/accessories'>ABOUT US</Link>   </MenuItem>
+      <MenuItem >    <Link style={{ textDecoration: "none", color: 'black', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='/about-us'>COLLABORATION</Link>   </MenuItem>
+      <MenuItem>    <Link style={{ textDecoration: "none", color: 'black', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='/agro'>CONTACTS</Link>    </MenuItem>
+      <MenuItem className="becomeAgentBttton" sx={{backgroundColor: '#FEBD02',borderRadius: '3px',fontWeight: 500,fontSize: '18px',lineHeight: '21px',textAlign: 'center',textTransform: 'uppercase',color: '#000000',textShadow: '0 2px 0 #FFCF44',height:'1em',margin:'0.8em',padding:'1em'}}> BECOME AN AGENT</MenuItem>
     </Menu>
   );
 
   return (
-    <React.Fragment>
+    <Box>
       <CssBaseline />
       <ElevationScroll {...props}>
         <AppBar >
-          <Toolbar sx={{display:'flex',alignItems:'start',textAlign:'center',justifyContent:'space-around'}}>
-            <IconButton
-              size="large"
-              edge="start"
-              aria-label="open drawer"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              sx={{
-                display: {
+          <Toolbar sx={{display:'flex',alignItems:'center',textAlign:'center',justifyContent:'space-around'}}>
+            {/* menuBtn */}
+            <IconButton size="large" edge="start" aria-label="open drawer" aria-controls={mobileMenuId} aria-haspopup="true" onClick={handleMobileMenuOpen} 
+            sx={{    display: {
                     lg: 'none',
                     md:'none',
-                    xs:'block'}
-            }}
+                    xs:'block'}, order:{xs:3},color:'white !important'}}                    
             >
               <MenuIcon />
             </IconButton>
-
-            <Typography
+            {/* image */}
+            <Typography sx={{order:{xs:1,lg:1}}}
               variant="h3"
               component="div"
             >
               <Link style={{ textDecoration: "none", color: 'black' }} to='/'>
-            <Box component={'img'} sx={{ width: { xs: '2em', lg: '2.8em' }, paddingTop: { lg: '0.1em' } }} src={logo} alt="logo" />
+            <Box component={'img'} sx={{ width: { xs: '2em', lg: '2.8em' }, paddingBottom: { lg: '0.1em',xs:"0.2em" } }} src={logo} alt="logo" />
               </Link>
             </Typography>
-            <Box sx={{ display: { xs: 'none', md: 'flex', color: 'grey' } }}>
+
+            <Box sx={{ display: { xs: 'none', md: 'flex', color: 'grey' },order:{lg:2} }}>
               <MenuItem>     <Link style={{ textDecoration: "none", color: 'white', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='/accessories'>ABOUT US</Link>   </MenuItem>
               <MenuItem >    <Link style={{ textDecoration: "none", color: 'white', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='/about-us'>COLLABORATION</Link>   </MenuItem>
               <MenuItem>    <Link style={{ textDecoration: "none", color: 'white', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='/agro'>CONTACTS</Link>    </MenuItem>
-              <MenuItem className="becomeAgentBttton" sx={{
-                backgroundColor: '#FEBD02',
-                borderRadius: '3px',
-                fontWeight: 500,
-                fontSize: '18px',
-                lineHeight: '21px',
-                textAlign: 'center',
-                textTransform: 'uppercase',
-                color: '#000000',
-                textShadow: '0 2px 0 #FFCF44',
-                height:'1em',
-                margin:'0.8em',
-                padding:'1em'          
-              }}> BECOME AN AGENT</MenuItem>
-              <MenuItem>
+              <MenuItem className="becomeAgentBttton" sx={{backgroundColor: '#FEBD02',borderRadius: '3px',fontWeight: 500,fontSize: '18px',lineHeight: '21px',textAlign: 'center',textTransform: 'uppercase',color: '#000000',textShadow: '0 2px 0 #FFCF44',height:'1em',margin:'0.8em',padding:'1em'          
+              }}> BECOME AN AGENT</MenuItem>              
+            </Box>
+            {/* language */}
+            <Box sx={{order:{xs:2}}}>
+            <MenuItem>
                 <ReactFlagsSelect
                   selected={select}
                   onSelect={onSelect}
@@ -132,15 +118,14 @@ const Navbar = (props) => {
                   }}
                   selectedSize={15}
                   optionsSize={15} />
-              </MenuItem>
-
+            </MenuItem>
             </Box>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
       <Toolbar />
-      {renderMobileMenu}
-    </React.Fragment>
+      {renderMobileMenu}     
+    </Box>
   );
 };
 
