@@ -6,10 +6,11 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import { Button } from '@mui/material';
+import './SubmitForm.css'
 
 
 const  SubmitForm = ()=> {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors },isSubmitted} = useForm();
   const onSubmit = data => console.log(data);
   const [isTelegramChecked, setIsTelegramChecked] = useState(false);
 
@@ -49,7 +50,7 @@ const  SubmitForm = ()=> {
                 height:'1em',
                 margin:'0.8em',
                 padding:'1em 7em'          
-              }} value='send'>Send</Button>
+              }} >Send</Button>
     </form>
   );
 }
