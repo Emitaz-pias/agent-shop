@@ -56,3 +56,8 @@ margin-top: 0.15rem;
     color: #FEBD02 !important;
 
 }
+.error-message{
+    color: #FF4040;
+    margin-left:1em;
+    padding-top: 0.5em !important;
+}
