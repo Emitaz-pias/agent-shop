@@ -7,7 +7,7 @@
     color: #FEBD02;
     margin: 0 0 12px;
 }
-.inps{
+/* .inps{
     margin-top: 1em !important;
 }
 .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root{
@@ -40,16 +40,15 @@ margin-top: 0.15rem;
     color: gray !important;
     opacity: 1 !important;
 }
+/* 
 
-/* Keep placeholder visible when focused */
 .MuiInputBase-input:focus::placeholder {
-    opacity: 1 !important; /* Ensure the placeholder remains fully visible */
+    opacity: 1 !important; 
 }
-/* Ensure placeholder remains visible even with label */
+/
 .MuiFormLabel-root.MuiInputLabel-root + .MuiInputBase-root .MuiInputBase-input::placeholder {
-    opacity: 1 !important; /* Ensure the placeholder remains fully visible */
-}
-.css-vqmohf-MuiButtonBase-root-MuiRadio-root {
+    opacity: 1 !important; 
+/* .css-vqmohf-MuiButtonBase-root-MuiRadio-root {
     color: #FEBD02 !important;
 }
 .css-ahj2mt-MuiTypography-root{
@@ -60,4 +59,4 @@ margin-top: 0.15rem;
     color: #FF4040;
     margin-left:1em;
     padding-top: 0.5em !important;
-}
+}  */

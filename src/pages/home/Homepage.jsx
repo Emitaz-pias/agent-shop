@@ -158,7 +158,7 @@ const Homepage = () => {
           <Box   component="img" src={submitApplication} sx={{ width: '100%', marginTop:{lg:'-12em'},marginLeft:{lg:'4em'}}} />                          
         </Grid>
         
-        <Grid item  lg={6} xs={12} md={8} >
+        <Grid item sx={{paddingLeft:{lg:'2em'}}}  lg={5} xs={12} md={8} >
           <Box className='first-screen__title' component='h1'>
             submit an application
           </Box>
