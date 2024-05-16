@@ -1,39 +1,49 @@
-import { FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import TextField from '@mui/material/TextField';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import { Button } from '@mui/material';
+
 
 const  SubmitForm = ()=> {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => console.log(data);
-  const [value, setValue] = React.useState('telegram');
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
   console.log(errors);
   
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-        <FormLabel id="demo-radio-buttons-group-label">Name</FormLabel>
-      < TextField id="outlined-basic"  variant="outlined" placeholder="Your name" {...register("Your name", {required: true})} /><br/>
-      <TextField id="outlined-basic"  variant="outlined" placeholder="Country" {...register("Country", {required: true})} /><br/>
-      <TextField id="outlined-basic"  variant="outlined" placeholder="Email" {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} /><br/>
-      <TextField id="outlined-basic"  variant="outlined" placeholder="Mobile number" {...register("Mobile number", {required: true, minLength: 6, maxLength: 12})} /><br/>
+
+      <TextField   sx={{width:{lg:"30vw !important",xs:"80vw !important"},margin:'0em 1em'}} className='inps' placeholder="Your name"  required id="outlined-required"label="Name" {...register("Your name", {required: true})} /> <br />
+      <TextField   sx={{width:{lg:"30vw !important",xs:"80vw !important"},margin:'0em 1em'}} className='inps'  required id="outlined-required"label="Country" placeholder="Country"  {...register("Country", {required: true})} /> <br />
+      <TextField   sx={{width:{lg:"30vw !important",xs:"80vw !important"},margin:'0em 1em'}} className='inps'  required id="outlined-required"label="Email" placeholder="Your email"  {...register("Email", {required: true, pattern: /^\S+@\S+$/i})} /> <br />
+      <TextField   sx={{width:{lg:"30vw !important",xs:"80vw !important"},margin:'0em 1em'}} className='inps'  required id="outlined-required"label="Phone" placeholder="Mobile number" {...register("Mobile number", {required: true, minLength: 6, maxLength: 12})} /> <br />
       <FormControl>
-  <RadioGroup
-    row
-    aria-labelledby="demo-radio-buttons-group-label"
-    name="radio-buttons-group"
-    value={value}
-    onChange={handleChange}
-  >
-    <FormControlLabel value="telegram" control={<Radio />} label="Telegram" />
-    <FormControlLabel value="other" control={<Radio />} label="Other" />
-  </RadioGroup>
-</FormControl><br/>
-<TextField id="outlined-basic"  variant="outlined" placeholder="Nickname" {...register("Nickname", {required: true})} /><br/>
-      <input type="submit" />
+      <RadioGroup
+        row 
+        sx={{width:{lg:"30vw !important",xs:"80vw !important"},margin:'0em 1em'}} className='inps'     
+      >
+        <FormControlLabel value="Telegram" control={<Radio />} label="Telegram" {...register("Telegram", { required: true })} /><br />
+        <FormControlLabel value="Other" control={<Radio />} label="Other" {...register("Other", { required: true })} /><br />
+      </RadioGroup>
+    </FormControl> <br />    
+      <TextField  sx={{width:{lg:"30vw !important",xs:"80vw !important"},margin:'0em 1em'}} className='inps' required id="outlined-required"label="Nick Name" placeholder="Nickname" {...register("Nickname", {required: true})} /><br />
+      <Button type='submit' className='becomeAgentBttton' style={{
+                backgroundColor: '#FEBD02',
+                borderRadius: '3px',
+                fontWeight: 'bolder',
+                fontSize: '18px',
+                lineHeight: '21px',
+                textAlign: 'center',
+                textTransform: 'uppercase',
+                color: '#000000',
+                textShadow: '0 2px 0 #FFCF44',
+                height:'1em',
+                margin:'0.8em',
+                padding:'1em 7em'          
+              }} value='send'>Send</Button>
     </form>
   );
 }

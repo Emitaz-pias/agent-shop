@@ -154,11 +154,11 @@ const Homepage = () => {
             Copyright © 2012-2024 «MelBet».
             All rights are reserved and protected by law.</Box></Box>
         </Grid>
-        <Grid item sx={{marginLeft:{lg:'6em'}}} lg={5} >
+        <Grid item sx={{marginLeft:{lg:'6em'}}} lg={5} xs={12} md={8} >
           <Box className='first-screen__title' component='h1'>
             submit an application
           </Box>
-          <Box>
+          <Box border='1px solid red'>
            <SubmitForm></SubmitForm>
           </Box>
         </Grid>
