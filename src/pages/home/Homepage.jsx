@@ -12,9 +12,14 @@ import logo from '../../images/logo.png'
 import './SubmitForm'
 import { pointsArray } from './pointsArry';
 import SubmitForm from './SubmitForm'
+import { useRef } from 'react';
 
 
 const Homepage = () => {
+  const aboutUsRef = useRef(null);
+  const collaborationRef = useRef(null);
+  const contactRef = useRef(null);
+
   return (
     <div>
       <Grid container sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexWrap: { sm: 'wrap-reverse', lg: 'nowrap', md: 'nowrap', xs: "wrap-reverse" } }}>
@@ -58,7 +63,7 @@ const Homepage = () => {
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box component='img' sx={{ width: { xs: '100%', lg: '70%', md: '75%' } }} src={manStanding}></Box>
         </Grid>
-        <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
+        <Grid id='aboutUs' ref={aboutUsRef} padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box className='first-screen__title' component='h1'>
             WHAT IS A MELBET AGENT?
           </Box>
@@ -104,7 +109,7 @@ const Homepage = () => {
           <Box component='img' sx={{ width: { xs: '100%', lg: '70%', md: '75%' } }} src={epos}></Box>
         </Grid>
       </Grid>
-      <Grid container sx={{ marginTop: '1em', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexWrap: { sm: 'wrap-reverse', lg: 'nowrap', md: 'nowrap', xs: "wrap" } }}>
+      <Grid id='collaboration' ref={collaborationRef} container sx={{ marginTop: '1em', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexWrap: { sm: 'wrap-reverse', lg: 'nowrap', md: 'nowrap', xs: "wrap" } }}>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box component='img' sx={{ width: { xs: '100%', lg: '70%', md: '75%' } }} src={coinHands}></Box>
         </Grid>
@@ -142,26 +147,32 @@ const Homepage = () => {
 
         </Grid>
       </Grid>
-      <Grid container >
-        <Grid marginTop={'1em'} item lg={6} xs={12} >
+      <Grid id='contact' ref={contactRef} container marginBottom={'6em'} >
+        <Grid textAlign={'center'} marginTop={'1em'} item lg={6} xs={12} >
           <h1 className='first-screen__title'>Contact Information</h1>
           <ul>
-            <li style={{ listStyle: 'none', padding: '1em' }} ><Box sx={{ display: 'flex', alignItems: 'center' }}> <Box component='img' sx={{ width: '10%' }} src={website}></Box><Box component="p" sx={{ margin: '1em' }}> melbet.com</Box></Box></li>
-            <li style={{ listStyle: 'none', padding: '1em' }} ><Box sx={{ display: 'flex' }}><Box component='img' sx={{ width: '10%' }} src={email}></Box> <Box component="p" sx={{ margin: '1em' }}> support@melbet.com </Box></Box> </li>
-          </ul>
-          <Box component="img" src={submitApplication} sx={{ width: '100%', position: { lg: 'relative', left: '8em', bottom: '12em', zIndex: 2 } }} />
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}><Box component='img' sx={{ width: '30%' }} src={logo}></Box> <Box component="p" sx={{ margin: '1em' }}>
-            Copyright © 2012-2024 «MelBet».
-            All rights are reserved and protected by law.</Box></Box>
+            <li style={{ listStyle: 'none', padding: '1em' }} ><Box sx={{ display: 'flex', alignItems: 'center' }}> <Box component='img' sx={{ width:{lg:'5%',xs:'10%'} }} src={website}></Box><Box component="p" sx={{ margin: '1em' }}> <u>melbet.com</u></Box></Box></li>
+            <li style={{ listStyle: 'none', padding: '1em' }} ><Box sx={{ display: 'flex',alignItems: 'center' }}><Box component='img' sx={{ width:{lg:'5%',xs:'10%'},height:{lg:'6%',xs:'9%'} }} src={email}></Box> <Box component="p" sx={{ margin: '1em' }}><u>support@melbet.com</u> </Box></Box> </li>
+          </ul>       
+          <Box   component="img" src={submitApplication} sx={{ width: '100%', marginTop:{lg:'-12em'},marginLeft:{lg:'4em'}}} />                          
         </Grid>
+        
         <Grid item sx={{marginLeft:{lg:'6em'}}} lg={5} xs={12} md={8} >
           <Box className='first-screen__title' component='h1'>
             submit an application
           </Box>
-          <Box border='1px solid red'>
+          <Box>
            <SubmitForm></SubmitForm>
           </Box>
+               
         </Grid>
+    
+         <Box sx={{ display: 'inline-flex', marginTop:{lg:'-7em'},justifyContent:{lg:'space-around',xs:'center'},alignItems:'center',flexWrap:{lg:'nowrap',xs:'wrap'} }}>
+            <Box component='img' sx={{ width:{lg:'25%',xs:'30%'} }} src={logo}></Box>
+             <Box  component="p" sx={{ margin: '1em',textAlign:'center' }}>
+            Copyright © 2012-2024 «MelBet». <br />
+            All rights are reserved and protected by law.</Box>
+            </Box>         
       </Grid>
 
     </div>
