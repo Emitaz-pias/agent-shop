@@ -10,21 +10,21 @@
     margin-left: 6px !important;
     margin-top:1px !important;  
 }
-.MuiFormLabel-root-MuiInputLabel-root{
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root{
     color:#FEBD02 !important;
 
 }
-.MuiInputBase-input-MuiOutlinedInput-input{
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
     color: gray !important;
     height: 0.45em !important;   
 }
-.MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
     color:#FEBD02 !important;
 }
-.MuiOutlinedInput-notchedOutline{
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline{
     border-color: #FEBD02 !important;
 }
-.MuiInputBase-root-MuiOutlinedInput-root{
+.css-9ddj71-MuiInputBase-root-MuiOutlinedInput-root{
 margin-top: 0.15rem;
 }
 .MuiInputBase-input::placeholder {
@@ -40,10 +40,10 @@ margin-top: 0.15rem;
 .MuiFormLabel-root.MuiInputLabel-root + .MuiInputBase-root .MuiInputBase-input::placeholder {
     opacity: 1 !important; /* Ensure the placeholder remains fully visible */
 }
-.MuiButtonBase-root-MuiRadio-root {
+.css-vqmohf-MuiButtonBase-root-MuiRadio-root {
     color: #FEBD02 !important;
 }
-.MuiTypography-root{
+.css-ahj2mt-MuiTypography-root{
     color: #FEBD02 !important;
 
 }
