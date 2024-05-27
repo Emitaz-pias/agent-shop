@@ -42,10 +42,10 @@ const Homepage = () => {
       <Grid container sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexWrap: { sm: 'wrap-reverse', lg: 'nowrap', md: 'nowrap', xs: "wrap-reverse" } }}>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box className='first-screen__title' component='h1'>
-          {translations.homepage.text1}
+          {translations.homepage.heaing1}
           </Box>
           <Box component='p' sx={{ fontWeight: 'bolder',textTransform:'uppercase' }}>
-         {translations.homepage.text2}
+         {translations.homepage.para1}
          </Box>
           <Button className="becomeAgentBttton" sx={{
             marginRight: '2em',
@@ -82,11 +82,10 @@ const Homepage = () => {
         </Grid>
         <Grid id='aboutUs' ref={aboutUsRef} padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box className='first-screen__title' component='h1'>
-            {translations.homepage.text1}
+            {translations.homepage.heaing2}
           </Box>
-          <Box component='p' sx={{ fontWeight: 'bolder' }}>  {translations.homepage.text21}</Box>
-          <Box component='p' sx={{ fontWeight: 'bolder' }}>With Melbet continuing to expand globally each year, why not join our international team? If you’d like to earn more, you could even set up your own agent network.</Box>
-          <Box component='p' sx={{ fontWeight: 'bolder' }}>The more agents in your network, the larger your income! You can start earning with Melbet today. Submit an application on our website and we’ll soon be in touch!</Box>
+          <Box component='p' sx={{ fontWeight: 'bolder' }}>  {translations.homepage.para2}</Box>
+          <Box component='p' sx={{ fontWeight: 'bolder' }}>{translations.homepage.para3}</Box>
           <Button className="becomeAgentBttton" onClick={handleOpenModal}  sx={{
             marginRight: '2em',
             backgroundColor: '#FEBD02',
@@ -108,18 +107,18 @@ const Homepage = () => {
       <Grid container sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexWrap: { sm: 'wrap-reverse', lg: 'nowrap', md: 'nowrap', xs: "wrap-reverse" } }}>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box className='first-screen__title' component='h1'>
-            MOBILE EPOS
+            {translations.homepage.heaing3}
           </Box>
           <Box component='p' sx={{ fontWeight: 'bolder' }}>
-            For smooth operation and workflow, we have developed a convenient Android app available in several languages. Thanks to the app’s simple interface, you’ll be able to create your very own agent network and boost your income.
-            <br />
+          {translations.homepage.para4}
+            {/* <br />
             You can use our app to:
             <ul>
               <li>Accept deposits and top up customers’ accounts</li>
               <li>Credit winnings online or in cash</li>
               <li>Set up your own agent network in your regio</li>
               <li>Expand your business to another country and bring in new customers</li>
-            </ul>
+            </ul> */}
           </Box>
         </Grid>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
@@ -132,9 +131,9 @@ const Homepage = () => {
         </Grid>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box className='first-screen__title' component='h1'>
-            HOW CAN I BECOME A MELBET AGENT?
+          {translations.homepage.heaing4}
           </Box>
-          <ol style={{ color: '#FEBD02', fontWeight: 'bolder' }}>
+          {/* <ol style={{ color: '#FEBD02', fontWeight: 'bolder' }}>
             <li>
               <h3>OBTAIN AGENT STATUS</h3>
               <p style={{ color: 'white' }}>Once you've completed verification, the bookmaker will grant you agent status.</p>
@@ -160,8 +159,35 @@ const Homepage = () => {
               <h3>EARN COMMISSION</h3>
               <span style={{ color: 'white' }}>Earn between 3-5% comission on deposits and 2% on withdrawals. Your total earnings will depend on the specifics of your region and other parameters. You'll gain access to additional information once you fill in all of your details.</span>
             </li>
-          </ol>
-
+          </ol> */}
+          <Box component='p'>
+          {translations.homepage.para5}
+          </Box>
+        </Grid>
+      </Grid>
+      <Grid container sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexWrap: { sm: 'wrap-reverse', lg: 'nowrap', md: 'nowrap', xs: "wrap-reverse" } }}>
+        <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
+          <Box className='first-screen__title' component='h1'>
+            {translations.homepage.heaing5}
+          </Box>
+          <Box component='p' sx={{ fontWeight: 'bolder' }}>
+          {translations.homepage.para6}
+          </Box>
+          <Box component='p' sx={{ fontWeight: 'bolder' }}>
+          {translations.homepage.para7}
+          </Box>
+          <Box component='p' sx={{ fontWeight: 'bolder' }}>
+          {translations.homepage.para8}
+          </Box>
+          <Box component='p' sx={{ fontWeight: 'bolder' }}>
+          {translations.homepage.para9}
+          </Box>
+          <Box component='p' sx={{ fontWeight: 'bolder' }}>
+          {translations.homepage.para10}
+          </Box>
+        </Grid>
+        <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
+          <Box component='img' sx={{ width: { xs: '100%', lg: '70%', md: '75%' } }} src={epos}></Box>
         </Grid>
       </Grid>
       <Grid id='contact' ref={contactRef} container marginBottom={'6em'} >
