@@ -16,6 +16,7 @@ import ReactFlagsSelect from 'react-flags-select';
 import './Navbar.css'
 import { AppContext } from '../../AppContext';
 import { useNavigate } from 'react-router-dom';
+import FormModal from '../../components/modal/FormModal'
 function ElevationScroll(props) {
   const { children, window } = props;
   const trigger = useScrollTrigger({
@@ -42,6 +43,15 @@ const Navbar = (props) => {
   const [select, setSelect] = useState("GB");
   const {setLanguage} = useContext(AppContext);
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   const handleChangeLanguage = (newLang) => {
     navigate(`/${newLang.toLowerCase()}/`);
@@ -122,7 +132,7 @@ const Navbar = (props) => {
               <MenuItem >    <Link style={{ textDecoration: "none", color: 'white', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#' onClick={scrollToCollaborate}>COLLABORATION</Link>   </MenuItem>
               <MenuItem>    <Link style={{ textDecoration: "none", color: 'white', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#' onClick={scrollToContact}>CONTACTS</Link>    </MenuItem>
               <MenuItem className="becomeAgentBttton" sx={{backgroundColor: '#FEBD02',borderRadius: '3px',fontWeight: 500,fontSize: '18px',lineHeight: '21px',textAlign: 'center',textTransform: 'uppercase',color: '#000000',textShadow: '0 2px 0 #FFCF44',height:'1em',margin:'0.8em',padding:'1em'          
-              }}> BECOME AN AGENT</MenuItem>              
+              }} onClick={handleOpenModal} > BECOME AN AGENT</MenuItem>              
             </Box>
             {/* language */}
             <Box sx={{order:{xs:2}}}>
@@ -143,6 +153,7 @@ const Navbar = (props) => {
         </AppBar>
       </ElevationScroll>
       <Toolbar />
+      <FormModal open={isModalOpen} handleClose={handleCloseModal} />
       {renderMobileMenu}     
     </Box>
   );

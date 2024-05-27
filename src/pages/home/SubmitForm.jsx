@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Radio from '@mui/material/Radio';
@@ -7,10 +7,46 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import { Button } from '@mui/material';
 import './SubmitForm.css';
+import { AppContext } from '../../AppContext';
 
 const SubmitForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const { register, handleSubmit, formState: { errors } } = useForm(); 
+  const {success,setSuccess} = useContext(AppContext);  
+  const createSheetData = (data) => {
+    fetch('https://sheetdb.io/api/v1/k2s66blg4dbv7', {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        data: [
+            {
+                'name':data.name,
+                "country":data.country,
+                "email":data.email,
+                "phone":data.phone,
+                "contactMethod":data.contactMethod,
+                "nickname":data.nickname,
+            }
+        ]
+    })
+})
+  .then((response) => response.json())
+  .then((data) => {
+    if(data.created ===1){
+      setSuccess(true)
+    }
+  });
+
+  }
+  const onSubmit = async data => {
+    try {
+      createSheetData(data)
+    } catch (error) {
+      alert(error.message);
+    }
+  };
   const [isTelegramChecked, setIsTelegramChecked] = useState(false);
 
   const handleRadioChange = (event) => {

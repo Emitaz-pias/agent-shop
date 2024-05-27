@@ -1,5 +1,5 @@
 import { Box, Button, Grid } from '@mui/material';
-import React, { useContext} from 'react';
+import React, { useContext, useState} from 'react';
 import './Homepage.css'
 import firstImm from '../../images/img.png'
 import manStanding from '../../images/manStanding.png'
@@ -15,15 +15,27 @@ import SubmitForm from './SubmitForm'
 import { useRef } from 'react';
 import { AppContext } from '../../AppContext';
 import { useParams } from 'react-router-dom';
+import FormModal from '../../components/modal/FormModal'
 
 
 
 const Homepage = () => {
-  const {language, setLanguage} = useContext(AppContext);  
+  const {language, setLanguage,success,setSuccess} = useContext(AppContext);  
   const translations = require(`../../translations/${language.toLowerCase()}.json`);
   const aboutUsRef = useRef(null);
   const collaborationRef = useRef(null);
   const contactRef = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <div>
@@ -49,7 +61,7 @@ const Homepage = () => {
             height: '1em',
             margin: '0.8em',
             padding: '1em'
-          }}>BECOME AN AGENT</Button>
+          }} onClick={handleOpenModal}>BECOME AN AGENT</Button>
 
         </Grid>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
@@ -75,7 +87,7 @@ const Homepage = () => {
           <Box component='p' sx={{ fontWeight: 'bolder' }}>  {translations.homepage.text21}</Box>
           <Box component='p' sx={{ fontWeight: 'bolder' }}>With Melbet continuing to expand globally each year, why not join our international team? If you’d like to earn more, you could even set up your own agent network.</Box>
           <Box component='p' sx={{ fontWeight: 'bolder' }}>The more agents in your network, the larger your income! You can start earning with Melbet today. Submit an application on our website and we’ll soon be in touch!</Box>
-          <Button className="becomeAgentBttton" sx={{
+          <Button className="becomeAgentBttton" onClick={handleOpenModal}  sx={{
             marginRight: '2em',
             backgroundColor: '#FEBD02',
             borderRadius: '3px',
@@ -167,7 +179,7 @@ const Homepage = () => {
             submit an application
           </Box>
           <Box>
-           <SubmitForm></SubmitForm>
+           <SubmitForm ></SubmitForm>
           </Box>
                
         </Grid>
@@ -179,7 +191,7 @@ const Homepage = () => {
             All rights are reserved and protected by law.</Box>
             </Box>         
       </Grid>
-
+      <FormModal open={isModalOpen} handleClose={handleCloseModal} />
     </div>
   );
 };
