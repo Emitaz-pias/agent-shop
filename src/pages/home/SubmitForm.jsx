@@ -90,8 +90,7 @@ const SubmitForm = () => {
             '&.Mui-focused .MuiInputBase-input': { color: 'gray' },
           },
         }}
-        className='inps'
-        
+        className='inps'        
         id="outlined-required"
         label="Phone"
         placeholder="Mobile number"

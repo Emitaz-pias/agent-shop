@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -14,6 +14,8 @@ import { Link } from 'react-router-dom';
 import logo from '../../images/logo.png'
 import ReactFlagsSelect from 'react-flags-select';
 import './Navbar.css'
+import { AppContext } from '../../AppContext';
+import { useNavigate } from 'react-router-dom';
 function ElevationScroll(props) {
   const { children, window } = props;
   const trigger = useScrollTrigger({
@@ -30,14 +32,24 @@ function ElevationScroll(props) {
     style: appBarStyles,
   });
 }
-const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
+// const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
 
 const Navbar = (props) => {
+
   const [,setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const [select, setSelect] = useState("GB");
-  const onSelect = (code) => setSelect(code);
+  const {setLanguage} = useContext(AppContext);
+  const navigate = useNavigate();
+
+  const handleChangeLanguage = (newLang) => {
+    navigate(`/${newLang.toLowerCase()}/`);
+  };
+  const onSelect = (code) => {  
+    setLanguage(code);
+    handleChangeLanguage(code)
+    setSelect(code)};
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
@@ -116,6 +128,7 @@ const Navbar = (props) => {
             <Box sx={{order:{xs:2}}}>
             <MenuItem >
                 <ReactFlagsSelect
+                
                   selected={select}
                   onSelect={onSelect}
                   countries={["GB", "FR", "es", "ES", "pt", "PT", "zh", "CN", "ja", "JP", "th", "TH", "ru", "RU", "az", "AZ", "ar", "AR", "kr", "KR", "my", "MY"]}
