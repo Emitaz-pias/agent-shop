@@ -1,5 +1,5 @@
 import { Box, Button, Grid } from '@mui/material';
-import React from 'react';
+import React, { useContext} from 'react';
 import './Homepage.css'
 import firstImm from '../../images/img.png'
 import manStanding from '../../images/manStanding.png'
@@ -13,10 +13,14 @@ import './SubmitForm'
 import { pointsArray } from './pointsArry';
 import SubmitForm from './SubmitForm'
 import { useRef } from 'react';
+import { AppContext } from '../../AppContext';
+import { useParams } from 'react-router-dom';
 
 
 
 const Homepage = () => {
+  const {language, setLanguage} = useContext(AppContext);  
+  const translations = require(`../../translations/${language.toLowerCase()}.json`);
   const aboutUsRef = useRef(null);
   const collaborationRef = useRef(null);
   const contactRef = useRef(null);
@@ -26,11 +30,11 @@ const Homepage = () => {
       <Grid container sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexWrap: { sm: 'wrap-reverse', lg: 'nowrap', md: 'nowrap', xs: "wrap-reverse" } }}>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box className='first-screen__title' component='h1'>
-            Make money with MelBet TeamCash!
+          {translations.homepage.text1}
           </Box>
-          <Box component='p' sx={{ fontWeight: 'bolder' }}>
-            PARTNERING UP WITH AN INTERNATIONAL BOOKMAKER IS INCREDIBLY REWARDING. ACCEPT FUNDS, TOP UP ACCOUNTS, MAKE WITHDRAWALS FOR CUSTOMERS OR CREATE YOUR VERY OWN AGENT NETWORK AND EARN COMMISSION!
-          </Box>
+          <Box component='p' sx={{ fontWeight: 'bolder',textTransform:'uppercase' }}>
+         {translations.homepage.text2}
+         </Box>
           <Button className="becomeAgentBttton" sx={{
             marginRight: '2em',
             backgroundColor: '#FEBD02',
@@ -66,9 +70,9 @@ const Homepage = () => {
         </Grid>
         <Grid id='aboutUs' ref={aboutUsRef} padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box className='first-screen__title' component='h1'>
-            WHAT IS A MELBET AGENT?
+            {translations.homepage.text1}
           </Box>
-          <Box component='p' sx={{ fontWeight: 'bolder' }}>A Melbet agent is someone who works online/offline and earns commission for bringing in new customers and helping them make deposits/withdrawals from their account.</Box>
+          <Box component='p' sx={{ fontWeight: 'bolder' }}>  {translations.homepage.text21}</Box>
           <Box component='p' sx={{ fontWeight: 'bolder' }}>With Melbet continuing to expand globally each year, why not join our international team? If you’d like to earn more, you could even set up your own agent network.</Box>
           <Box component='p' sx={{ fontWeight: 'bolder' }}>The more agents in your network, the larger your income! You can start earning with Melbet today. Submit an application on our website and we’ll soon be in touch!</Box>
           <Button className="becomeAgentBttton" sx={{
