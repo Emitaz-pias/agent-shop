@@ -50,7 +50,7 @@ const  SubmitForm = ()=> {
                 height:'1em',
                 margin:'0.8em',
                 padding:'1em 7em'          
-              }} >Send</Button>
+              }} >Send</Button>   
     </form>
   );
 }

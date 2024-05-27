@@ -9,8 +9,9 @@
     width: fit-content !important;
     margin-left: 6px !important;
     margin-top:1px !important;
-    transform: none !important;
-    transform-origin: none !important;    
+}
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root{
+    border: 2px solid red !important;
 }
 .MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
     transform: none !important;
@@ -26,11 +27,11 @@
 }
 .MuiFormLabel-root-MuiInputLabel-root{
     color:#FEBD02 !important;
+    transform: none !important;    
 }
 .MuiInputLabel-root.Mui-focused{
     color:#FEBD02 !important;
-    transform: none !important;
-
+    transform: none !important;    
 }
 .MuiInputBase-input-MuiOutlinedInput-input{
     color: gray !important;
@@ -45,6 +46,7 @@
 }
 .MuiInputBase-root-MuiOutlinedInput-root{
 margin-top: 0.15rem;
+
 }
 .MuiInputBase-input::placeholder {
     color: gray !important;
@@ -64,10 +66,19 @@ margin-top: 0.15rem;
 }
 .css-ahj2mt-MuiTypography-root{
     color: #FEBD02 !important;
-
 }
 .error-message{
     color: #FF4040;
     margin-left:1em;
     padding-top: 0.5em !important;
 }
+/* .wpcf7-form label {
+    color: #FEBD02;
+    padding: 0 10px;
+    background: #212121;
+    margin-bottom: -7px;
+    display: flex;
+    position: relative;
+    z-index: 2;
+    width: fit-content;
+} */
