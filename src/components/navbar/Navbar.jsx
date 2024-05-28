@@ -17,6 +17,7 @@ import './Navbar.css'
 import { AppContext } from '../../AppContext';
 import { useNavigate } from 'react-router-dom';
 import FormModal from '../../components/modal/FormModal'
+import { Dialog, DialogContent, DialogTitle } from '@mui/material';
 
 
 function ElevationScroll(props) {
@@ -89,19 +90,70 @@ const Navbar = (props) => {
 
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}      
-      id={mobileMenuId}
+    <Dialog
+      fullScreen
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
-      style={{background:'#212121',border:'1px solid red'}}>
-
-      <Box sx={{ padding: '0.1em',}} onClick={handleMenuClose}><CloseIcon /></Box>
-      <MenuItem> <Link style={{ textDecoration: "none", color: 'white', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#aboutUs'>{translations.homepage.navMenuAboutUs}</Link>   </MenuItem>
-      <MenuItem > <Link style={{ textDecoration: "none", color: 'white', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#collaboration'>{translations.homepage.navMenuCollaboration}</Link>   </MenuItem>
-      <MenuItem>   <Link style={{ textDecoration: "none", color: 'white', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#contact'>{translations.homepage.navMenuContacts}</Link>    </MenuItem>
-      <MenuItem className="becomeAgentBttton" onClick={handleOpenModal} sx={{backgroundColor: '#FEBD02',borderRadius: '3px',fontWeight: 500,fontSize: '18px',lineHeight: '21px',textAlign: 'center',textTransform: 'uppercase',color: '#000000',textShadow: '0 2px 0 #FFCF44',height:'1em',margin:'0.8em',padding:'1em'}}>{translations.homepage.becomeAgent}</MenuItem>
-    </Menu>
+      PaperProps={{
+        style: {
+          background: '#212121',         
+          color: 'white',
+          
+        },
+      }}
+    >
+      <DialogTitle >
+        <Box sx={{ padding: '0.1em ',textAlign:'right' }} onClick={handleMobileMenuClose}>
+          <CloseIcon />
+        </Box>
+      </DialogTitle>
+      <DialogContent style={{marginTop:'5em'}}>
+        <MenuItem sx={{padding:'1em 0 0 5em'}}>
+          <Link
+            style={{ textDecoration: 'none', color: 'white', fontStyle: 'italic', fontSize: '1.5em', fontWeight: 'bold' }}
+            to="#aboutUs"
+          >
+            {translations.homepage.navMenuAboutUs}
+          </Link>
+        </MenuItem>
+        <MenuItem sx={{padding:'1em 0 0 5em'}}>
+          <Link
+            style={{ textDecoration: 'none', color: 'white', fontStyle: 'italic', fontSize: '1.5em', fontWeight: 'bold' }}
+            to="#collaboration"
+          >
+            {translations.homepage.navMenuCollaboration}
+          </Link>
+        </MenuItem>
+        <MenuItem sx={{padding:'1em 0 0 5em'}}>
+          <Link
+            style={{ textDecoration: 'none', color: 'white', fontStyle: 'italic', fontSize: '1.5em', fontWeight: 'bold',}}
+            to="#contact"
+          >
+            {translations.homepage.navMenuContacts}
+          </Link>
+        </MenuItem>
+        <MenuItem
+          className="becomeAgentBttton"
+          onClick={handleOpenModal}
+          sx={{
+            backgroundColor: '#FEBD02',
+            borderRadius: '3px',
+            fontWeight: 500,
+            fontSize: '18px',
+            lineHeight: '21px',
+            textAlign: 'center',
+            textTransform: 'uppercase',
+            color: '#000000',
+            textShadow: '0 2px 0 #FFCF44',
+            height: '1em',
+            marginTop: '2em',
+            padding: '0.5em 0.5em 0.5em 3em',
+          }}
+        >
+          {translations.homepage.becomeAgent}
+        </MenuItem>
+      </DialogContent>
+    </Dialog>
   );
 
   return (
