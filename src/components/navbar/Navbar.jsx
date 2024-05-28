@@ -144,9 +144,9 @@ const Navbar = (props) => {
                 
                   selected={select}
                   onSelect={onSelect}
-                  countries={["GB", "FR", "es", "ES", "pt", "PT", "zh", "CN", "ja", "JP", "th", "TH", "ru", "RU", "az", "AZ", "ar", "AR", "kr", "KR", "my", "MY"]}
+                  countries={["GB", "FR", "es", "ES", "pt", "PT", "zh", "CN", "ja", "JP", "th", "TH", "ru", "RU", "az", "AZ","SA", "kr", "KR", "my", "MY"]}
                   customLabels={{
-                    GB: "EN", FR: "FR", es: "es", ES: "ES", pt: "pt", PT: "PT", CN: "ZH", ZH: "ZH", JP: "JA", JA: "JA", th: "TH", TH: "TH", ru: "RU", RU: "RU", az: "AZ", AZ: "AZ", ar: "AR", AR: "AR", kr: "KR", KR: "KR", my: "MY", MY: "MY"
+                    GB: "EN", FR: "FR", es: "es", ES: "ES", pt: "pt", PT: "PT", CN: "ZH", ZH: "ZH", JP: "JA", JA: "JA", th: "TH", TH: "TH", ru: "RU", RU: "RU", az: "AZ", AZ: "AZ", SA: "AR", AR: "AR", kr: "KR", KR: "KR", my: "MY", MY: "MY"
                   }}
                   selectedSize={15}
                   optionsSize={15} />

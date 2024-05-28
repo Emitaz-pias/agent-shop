@@ -18,8 +18,6 @@ import { useParams } from 'react-router-dom';
 import FormModal from '../../components/modal/FormModal'
 import { usePointsArray } from './pointsArry';
 
-
-
 const Homepage = () => {
   const {language, setLanguage,success,setSuccess} = useContext(AppContext);  
   const translations = require(`../../translations/${language.toLowerCase()}.json`);
@@ -31,6 +29,7 @@ const Homepage = () => {
   
 
 
+document.title =  translations.homepage.title
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
