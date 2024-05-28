@@ -17,31 +17,7 @@ import './Navbar.css'
 import { AppContext } from '../../AppContext';
 import { useNavigate } from 'react-router-dom';
 import FormModal from '../../components/modal/FormModal'
-import styled from 'styled-components';
 
-const StyledReactFlagsSelect = styled(ReactFlagsSelect)`
-  .ReactFlagsSelect-module_fullWidthOptions {
-    background: #FEBD02 !important;
-    border-radius: 3px;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #000000 !important;
-    text-shadow: 0 2px 0 #FFCF44;
-  }
-  
-  .ReactFlagsSelect-module_fullWidthOptions{
-    background-color: red !important;
-  }
-  .ReactFlagsSelect-module_selectOption:hover&:focus{
-    color: red !important;
-}
-.ReactFlagsSelect-module_selectOptions{
-  background:red !important;
-}
-`;
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -114,23 +90,16 @@ const Navbar = (props) => {
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-      }}
+      anchorEl={mobileMoreAnchorEl}      
       id={mobileMenuId}
-      transformOrigin={{
-        vertical: 'top',
-        horizontal: 'left',
-      }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
-    >
-      <Box sx={{ padding: '0.1em' }} onClick={handleMenuClose}><CloseIcon /></Box>
-      <MenuItem> <Link style={{ textDecoration: "none", color: 'black', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#aboutUs'>{translations.homepage.navMenuAboutUs}</Link>   </MenuItem>
-      <MenuItem > <Link style={{ textDecoration: "none", color: 'black', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#collaboration'>{translations.homepage.navMenuCollaboration}</Link>   </MenuItem>
-      <MenuItem>   <Link style={{ textDecoration: "none", color: 'black', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#contact'>{translations.homepage.navMenuContacts}</Link>    </MenuItem>
+      style={{background:'#212121',border:'1px solid red'}}>
+
+      <Box sx={{ padding: '0.1em',}} onClick={handleMenuClose}><CloseIcon /></Box>
+      <MenuItem> <Link style={{ textDecoration: "none", color: 'white', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#aboutUs'>{translations.homepage.navMenuAboutUs}</Link>   </MenuItem>
+      <MenuItem > <Link style={{ textDecoration: "none", color: 'white', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#collaboration'>{translations.homepage.navMenuCollaboration}</Link>   </MenuItem>
+      <MenuItem>   <Link style={{ textDecoration: "none", color: 'white', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#contact'>{translations.homepage.navMenuContacts}</Link>    </MenuItem>
       <MenuItem className="becomeAgentBttton" onClick={handleOpenModal} sx={{backgroundColor: '#FEBD02',borderRadius: '3px',fontWeight: 500,fontSize: '18px',lineHeight: '21px',textAlign: 'center',textTransform: 'uppercase',color: '#000000',textShadow: '0 2px 0 #FFCF44',height:'1em',margin:'0.8em',padding:'1em'}}>{translations.homepage.becomeAgent}</MenuItem>
     </Menu>
   );
@@ -142,13 +111,13 @@ const Navbar = (props) => {
         <AppBar >
           <Toolbar sx={{display:'flex',alignItems:'center',textAlign:'center',justifyContent:'space-around'}}>
             {/* menuBtn */}
-            <IconButton size="large" edge="start" aria-label="open drawer" aria-controls={mobileMenuId} aria-haspopup="true" onClick={handleMobileMenuOpen} 
-            sx={{    display: {
-                    lg: 'none',
+            <IconButton size="large" edge="center" aria-label="open drawer" aria-controls={mobileMenuId} onClick={handleMobileMenuOpen} 
+            sx={{display: {
+                    lg: 'block',
                     md:'none',
                     xs:'block'}, order:{xs:3},color:'white !important'}}                    
             >
-              <MenuIcon />
+              <MenuIcon/>
             </IconButton>
             {/* image */}
             <Typography sx={{order:{xs:1,lg:1}}}
@@ -170,7 +139,7 @@ const Navbar = (props) => {
             {/* language */}
             <Box sx={{order:{xs:2}}}>
             <MenuItem >
-                <StyledReactFlagsSelect                
+                <ReactFlagsSelect                
                   selected={select}
                   onSelect={onSelect}
                   countries={["GB", "FR", "es", "ES", "pt", "PT", "zh", "CN", "ja", "JP", "th", "TH", "ru", "RU", "az", "AZ","SA", "kr", "KR", "my", "MY"]}
@@ -180,6 +149,8 @@ const Navbar = (props) => {
                   selectedSize={15}
                   optionsSize={15} />
             </MenuItem>
+
+
             </Box>
           </Toolbar>
         </AppBar>
