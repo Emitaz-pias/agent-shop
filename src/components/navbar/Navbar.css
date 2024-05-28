@@ -14,17 +14,17 @@
     color: #000000 ;
     text-shadow: 0 2px 0 #FFCF44;
 }
-.ReactFlagsSelect-module_fullWidthOptions__1XeR6{
-    background-color: #212121;
-    color:white;
+.ReactFlagsSelect-module_fullWidthOptions{
+    background-color: #212121 !important;
+    color:black;
 }
-/* .ReactFlagsSelect-module_fullWidthOptions__1XeR6:hover{
-    
-} */
-.ReactFlagsSelect-module_selectOption__1XeR6 :hover&:focus{
+.ReactFlagsSelect-module_selectOptions__3LNBJ ReactFlagsSelect-module_fullWidthOptions__1XeR6{
+    background-color: red !important;
+  }
+.ReactFlagsSelect-module_selectOption:hover&:focus{
     color: red !important;
 }
-.ReactFlagsSelect-module_selectOption__1XeR6{
+.ReactFlagsSelect-module_selectOption{
     padding: 2px 18px;
     &:hover,
     &:focus {

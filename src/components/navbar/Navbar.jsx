@@ -17,6 +17,32 @@ import './Navbar.css'
 import { AppContext } from '../../AppContext';
 import { useNavigate } from 'react-router-dom';
 import FormModal from '../../components/modal/FormModal'
+import styled from 'styled-components';
+
+const StyledReactFlagsSelect = styled(ReactFlagsSelect)`
+  .ReactFlagsSelect-module_fullWidthOptions {
+    background: #FEBD02 !important;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000 !important;
+    text-shadow: 0 2px 0 #FFCF44;
+  }
+  
+  .ReactFlagsSelect-module_fullWidthOptions{
+    background-color: red !important;
+  }
+  .ReactFlagsSelect-module_selectOption:hover&:focus{
+    color: red !important;
+}
+.ReactFlagsSelect-module_selectOptions{
+  background:red !important;
+}
+`;
+
 function ElevationScroll(props) {
   const { children, window } = props;
   const trigger = useScrollTrigger({
@@ -99,9 +125,9 @@ const Navbar = (props) => {
     >
       <Box sx={{ padding: '0.1em' }} onClick={handleMenuClose}><CloseIcon /></Box>
       <MenuItem> <Link style={{ textDecoration: "none", color: 'black', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#aboutUs'>{translations.homepage.navMenuAboutUs}</Link>   </MenuItem>
-      <MenuItem >    <Link style={{ textDecoration: "none", color: 'black', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#collaboration'>{translations.homepage.navMenuCollaboration}</Link>   </MenuItem>
-      <MenuItem>    <Link style={{ textDecoration: "none", color: 'black', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#contact'>{translations.homepage.navMenuContacts}</Link>    </MenuItem>
-      <MenuItem className="becomeAgentBttton" sx={{backgroundColor: '#FEBD02',borderRadius: '3px',fontWeight: 500,fontSize: '18px',lineHeight: '21px',textAlign: 'center',textTransform: 'uppercase',color: '#000000',textShadow: '0 2px 0 #FFCF44',height:'1em',margin:'0.8em',padding:'1em'}}>{translations.homepage.becomeAgent}</MenuItem>
+      <MenuItem > <Link style={{ textDecoration: "none", color: 'black', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#collaboration'>{translations.homepage.navMenuCollaboration}</Link>   </MenuItem>
+      <MenuItem>   <Link style={{ textDecoration: "none", color: 'black', fontStyle: 'italic', fontSize: '1em',fontWeight:'bold' }} to='#contact'>{translations.homepage.navMenuContacts}</Link>    </MenuItem>
+      <MenuItem className="becomeAgentBttton" onClick={handleOpenModal} sx={{backgroundColor: '#FEBD02',borderRadius: '3px',fontWeight: 500,fontSize: '18px',lineHeight: '21px',textAlign: 'center',textTransform: 'uppercase',color: '#000000',textShadow: '0 2px 0 #FFCF44',height:'1em',margin:'0.8em',padding:'1em'}}>{translations.homepage.becomeAgent}</MenuItem>
     </Menu>
   );
 
@@ -140,8 +166,7 @@ const Navbar = (props) => {
             {/* language */}
             <Box sx={{order:{xs:2}}}>
             <MenuItem >
-                <ReactFlagsSelect
-                
+                <StyledReactFlagsSelect                
                   selected={select}
                   onSelect={onSelect}
                   countries={["GB", "FR", "es", "ES", "pt", "PT", "zh", "CN", "ja", "JP", "th", "TH", "ru", "RU", "az", "AZ","SA", "kr", "KR", "my", "MY"]}
