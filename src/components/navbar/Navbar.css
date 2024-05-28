@@ -11,10 +11,13 @@
 }
 
 .ReactFlagsSelect-module_selectBtn__19wW7{
-    border: none;
+    border: none !important;
     color: white;
     font-weight: bolder;
 }
 .ReactFlagsSelect-module_selectOptions__3LNBJ{
   background-color: #212121 !important;
+}
+.ReactFlagsSelect-module_selectOption__3pcgW:hover, .ReactFlagsSelect-module_selectOption__3pcgW:focus{
+  background-color: #3e3c3c;
 }
