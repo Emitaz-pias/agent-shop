@@ -61,7 +61,7 @@ const Homepage = () => {
             height: '1em',
             margin: '0.8em',
             padding: '1em'
-          }} onClick={handleOpenModal}>BECOME AN AGENT</Button>
+          }} onClick={handleOpenModal}>{translations.homepage.becomeAgent}</Button>
 
         </Grid>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
@@ -100,7 +100,7 @@ const Homepage = () => {
             height: '1em',
             margin: '0.8em',
             padding: '1em'
-          }}>START EARNING</Button>
+          }}>{translations.homepage.startEarningBtn}</Button>
 
         </Grid>
       </Grid>
