@@ -73,6 +73,11 @@ const Navbar = (props) => {
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
+const scrollToViewAndCloseMenu = (scrollToFunction, onCloseFunction) => {
+    scrollToFunction();
+    onCloseFunction();
+  };
+
   const scrollToAboutUs = () => {document.getElementById('aboutUs').scrollIntoView({ behavior: 'smooth' });};
   const scrollToCollaborate = () => {document.getElementById('collaboration').scrollIntoView({ behavior: 'smooth' });};
   const scrollToContact = () => {document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });};
@@ -108,26 +113,25 @@ const Navbar = (props) => {
         </Box>
       </DialogTitle>
       <DialogContent style={{marginTop:'5em'}}>
-        <MenuItem sx={{padding:'1em 0 0 5em'}}>
+        <MenuItem sx={{padding:'1em 0 0 5em'}} onClick={() => scrollToViewAndCloseMenu(scrollToAboutUs, handleMobileMenuClose)}>
           <Link
             style={{ textDecoration: 'none', color: 'white', fontStyle: 'italic', fontSize: '1.5em', fontWeight: 'bold' }}
-            to="#aboutUs"
+            to="#" onClick={scrollToAboutUs}
           >
             {translations.homepage.navMenuAboutUs}
           </Link>
         </MenuItem>
-        <MenuItem sx={{padding:'1em 0 0 5em'}}>
+        <MenuItem sx={{padding:'1em 0 0 5em'}} onClick={() => scrollToViewAndCloseMenu(scrollToCollaborate, handleMobileMenuClose)} >
           <Link
-            style={{ textDecoration: 'none', color: 'white', fontStyle: 'italic', fontSize: '1.5em', fontWeight: 'bold' }}
-            to="#collaboration"
+            style={{ textDecoration: 'none', color: 'white', fontStyle: 'italic', fontSize: '1.5em', fontWeight: 'bold' }}           
           >
             {translations.homepage.navMenuCollaboration}
           </Link>
         </MenuItem>
-        <MenuItem sx={{padding:'1em 0 0 5em'}}>
+        <MenuItem sx={{padding:'1em 0 0 5em'}} onClick={()=>scrollToViewAndCloseMenu(scrollToContact, handleMenuClose)}>
           <Link
             style={{ textDecoration: 'none', color: 'white', fontStyle: 'italic', fontSize: '1.5em', fontWeight: 'bold',}}
-            to="#contact"
+            
           >
             {translations.homepage.navMenuContacts}
           </Link>
@@ -165,7 +169,7 @@ const Navbar = (props) => {
             {/* menuBtn */}
             <IconButton size="large" edge="center" aria-label="open drawer" aria-controls={mobileMenuId} onClick={handleMobileMenuOpen} 
             sx={{display: {
-                    lg: 'block',
+                    lg: 'none',
                     md:'none',
                     xs:'block'}, order:{xs:3},color:'white !important'}}                    
             >

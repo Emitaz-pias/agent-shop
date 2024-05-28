@@ -1,42 +1,45 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import SubmitForm from '../../pages/home/SubmitForm';
 import CloseIcon from '@mui/icons-material/Close';
-import { JoinFull } from '@mui/icons-material';
 import { AppContext } from '../../AppContext';
+import SubmitForm from '../../pages/home/SubmitForm';
+import { Grid } from '@mui/material';
 
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width:'60vw',
-  display:'flex',
-  justifyContent: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center', // Center the content horizontally
   bgcolor: '#212121',
-  padding:'4em 0em',
-  borderRadius:'1em'
-  
+  padding: '2em', // Decreased padding for better mobile display
+  borderRadius: '1em',
 };
 
-export default function BasicModal({ open, handleClose}) {
-  
-  const {success,setSuccess,language} = React.useContext(AppContext);  
+export default function BasicModal({ open, handleClose }) {
+  const { success, language } = React.useContext(AppContext);
   const translations = require(`../../translations/${language.toLowerCase()}.json`);
 
   return (
     <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
+      <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-       {success? <Box><h1 className='first-screen__title'>{translations.homepage.thanks}</h1><Box color={'grey'} component={'p'}>{translations.homepage.modalPara}</Box></Box>
-       : <Box><SubmitForm/></Box>}
-        <Box sx={{paddingLeft:'5em',marginTop:"-3em"}}><CloseIcon sx={{ fontSize: 60 ,color:'gray'}}  onClick={handleClose}/></Box>       
+        <CloseIcon sx={{ fontSize: 40, color: 'gray', cursor: 'pointer', marginTop: '1em' }} onClick={handleClose} />
+          {success ? (
+            <Box textAlign="center">
+              <h1>{translations.homepage.thanks}</h1>
+              <p>{translations.homepage.modalPara}</p>
+            </Box>
+          ) : (
+            <Grid container spacing={2} justifyContent="center">
+              <Grid item lg={6} md={8} xs={12}>
+                <SubmitForm />
+              </Grid>
+            </Grid>
+          )}
         </Box>
       </Modal>
     </div>
