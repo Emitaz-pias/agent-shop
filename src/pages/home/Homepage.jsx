@@ -136,34 +136,7 @@ document.title =  translations.homepage.title
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box className='first-screen__title' component='h1'>
           {translations.homepage.heaing4}
-          </Box>
-          {/* <ol style={{ color: '#FEBD02', fontWeight: 'bolder' }}>
-            <li>
-              <h3>OBTAIN AGENT STATUS</h3>
-              <p style={{ color: 'white' }}>Once you've completed verification, the bookmaker will grant you agent status.</p>
-            </li>
-            <li>
-              <h3>LOG IN AND MAKE YOUR FIRST DEPOSIT</h3>
-              <p style={{ color: 'white' }}>Once you've logged in, you'll need to verify your identity on the MelBet website. You'll then get access to your own agent balance, which you'll use to top up customers' accounts.</p>
-            </li>
-            <li>
-              <h3>DOWNLOAD AND INSTALL THE APP</h3>
-              <p style={{ color: 'white' }}>Your manager will send you a link which you can use to download the mobile app. Please make sure that your phone's operating system is no older than the Android 4.4 version before installing the app.</p>
-            </li>
-            <li>
-              <h3>START CHATTING WITH PLAYERS</h3>
-              <p style={{ color: 'white' }}>Make sure that they have a MelBet account.</p>
-            </li>
-            <li>
-              <h3>HELP PLAYERS MAKE QUICK DEPOSITS</h3>
-              <p style={{ color: 'white' }}>You'll be able to top up customers' accounts quickly and easily. Use the deposits in your account to transfer funds from your agent account to customers' accounts.
-              </p>
-            </li>
-            <li>
-              <h3>EARN COMMISSION</h3>
-              <span style={{ color: 'white' }}>Earn between 3-5% comission on deposits and 2% on withdrawals. Your total earnings will depend on the specifics of your region and other parameters. You'll gain access to additional information once you fill in all of your details.</span>
-            </li>
-          </ol> */}
+          </Box>        
           <Box component='p'>
           {translations.homepage.para5}
           </Box>
@@ -199,8 +172,10 @@ document.title =  translations.homepage.title
           <h1 className='first-screen__title'>{translations.homepage.heading6}</h1>
           <ul>
             <li style={{ listStyle: 'none', padding: '1em' }} ><Box sx={{ display: 'flex', alignItems: 'center' }}> <Box component='img' sx={{ width:{lg:'5%',xs:'10%'} }} src={website}></Box><Box component="p" sx={{ margin: '1em' }}> <u>melbet.com</u></Box></Box></li>
-            <li style={{ listStyle: 'none', padding: '1em' }} ><Box sx={{ display: 'flex',alignItems: 'center' }}><Box component='img' sx={{ width:{lg:'5%',xs:'10%'},height:{lg:'6%',xs:'9%'} }} src={email}></Box> <Box component="p" sx={{ margin: '1em' }}><u>support@melbet.com</u> </Box></Box> </li>
-          </ul>       
+            <li style={{ listStyle: 'none', padding: '1em' }} ><Box sx={{ display: 'flex',alignItems: 'center' }}><Box component='img' sx={{ width:{lg:'5%',xs:'10%'},height:{lg:'6%',xs:'9%'} }} src={email}></Box> <Box component="p" sx={{ margin: '1em' }}><u>Melbetsupport.com</u> </Box></Box> </li>
+            <li style={{ listStyle: 'none', padding: '1em' }} ><Box sx={{ display: 'flex',alignItems: 'center' }}><Box component='img' sx={{ width:{lg:'5%',xs:'10%'},height:{lg:'6%',xs:'9%'} }} src={email}></Box> <Box component="p" sx={{ margin: '1em' }}><u>agents@melbetsupport.com</u> </Box></Box> </li>
+            <li style={{ listStyle: 'none', padding: '1em' }} ><Box sx={{ display: 'flex',alignItems: 'center' }}><Box component='img' sx={{ width:{lg:'5%',xs:'10%'},height:{lg:'6%',xs:'9%'} }} src={email}></Box> <Box component="p" sx={{ margin: '1em' }}><u>team@melbetsupport.com</u> </Box></Box> </li>
+          </ul>           
           <Box   component="img" src={submitApplication} sx={{ width: '100%', marginTop:{lg:'-12em'},marginLeft:{lg:'4em'}}} />                          
         </Grid>
         
