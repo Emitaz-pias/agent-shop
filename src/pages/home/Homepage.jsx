@@ -30,7 +30,7 @@ const Homepage = () => {
       <Grid container sx={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexWrap: { sm: 'wrap-reverse', lg: 'nowrap', md: 'nowrap', xs: "wrap-reverse" } }}>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box className='first-screen__title' component='h1'>
-          {translations.homepage.text1}
+          {translations.homepage.heading1}
           </Box>
           <Box component='p' sx={{ fontWeight: 'bolder',textTransform:'uppercase' }}>
          {translations.homepage.text2}
