@@ -85,10 +85,14 @@ const Navbar = (props) => {
   const handleChangeLanguage = (newLang) => {
     navigate(`/${newLang.toLowerCase()}/`);
   };
-  const onSelect = (code) => {  
-    setLanguage(code);
-    handleChangeLanguage(code)
-    setSelect(code)};
+  const onSelect = (code) => {
+    if(code === 'SA' || code === 'RU' || code === 'GB'){
+        setLanguage(code);
+        handleChangeLanguage(code);
+        setSelect(code);
+    }
+}
+
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };

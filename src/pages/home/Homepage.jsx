@@ -19,7 +19,7 @@ import FormModal from '../../components/modal/FormModal'
 import { usePointsArray } from './pointsArry';
 
 const Homepage = () => {
-  const {language, setLanguage,success,setSuccess} = useContext(AppContext);  
+  const {language, setLanguage,success,setSuccess} = useContext(AppContext);   
   const translations = require(`../../translations/${language.toLowerCase()}.json`);
   const aboutUsRef = useRef(null);
   const collaborationRef = useRef(null);
