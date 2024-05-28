@@ -19,11 +19,26 @@
     "para9": "Wait to proceed    Whenver we need more agents we contact the applicants & go for the formalities.",
     "para10": "Start earning    Complete the formalities then it's time to start earning. You can earn as much as you want with Melbet. And you're always welcome to us.",
     "becomeAgent":"Become An Agent",
-    "startEarningBtn":"Start Earning"
-    
+    "startEarningBtn":"Start Earning",
+    "point1":"RELIABLE BOOKMAKER SINCE 2012",
+    "point2":"50+ COUNTRIES",
+    "point3":"400,000+ PLAYERS WORLDWIDE",
+    "point4":"BEST TERMS",
+    "point5":"STABLE PAYOUTS",
+    "heading6":"Contact Information",
+    "heading7":"Submit an application",
+    "labelName":"Name *",
+    "labelCountry":"Country *",
+    "labelEmail":"Email *",
+    "labelPhone":"Phone *",
+    "labelOther":"Other *",
+    "labelNickname":"Nickname *",
+    "sendBtn":"Send",
+    "footer1":" Copyright © 2012-2024 «MelBet».",
+    "footer2":"All rights are reserved and protected by law.",
+    "thanks":"Thanks",
+    "modalPara":"We received your application and will soon be in touch "
 
-
-    
 
   }
 

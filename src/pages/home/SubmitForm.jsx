@@ -11,7 +11,9 @@ import { AppContext } from '../../AppContext';
 
 const SubmitForm = () => {
   const { register, handleSubmit, formState: { errors } } = useForm(); 
-  const {success,setSuccess} = useContext(AppContext);  
+  const {success,setSuccess,language} = useContext(AppContext); 
+  const translations = require(`../../translations/${language.toLowerCase()}.json`);
+ 
   const createSheetData = (data) => {
     fetch('https://sheetdb.io/api/v1/k2s66blg4dbv7', {
     method: 'POST',
@@ -66,7 +68,7 @@ const SubmitForm = () => {
         }}
         className='inps'        
         id="outlined-required"
-        label="Name"
+        label={translations.homepage.labelName}
         placeholder="Your name"
         {...register("name", { required: "Please fill out this field." })}
       />
@@ -85,7 +87,7 @@ const SubmitForm = () => {
         className='inps'
         
         id="outlined-required"
-        label="Country"
+        label={translations.homepage.labelCountry}
         placeholder="Country"
         {...register("country", { required: "Please fill out this field." })}
       />
@@ -104,7 +106,7 @@ const SubmitForm = () => {
         className='inps'
         
         id="outlined-required"
-        label="Email"
+        label={translations.homepage.labelEmail}
         placeholder="Your email"
         {...register("email", {
           required: "Please fill out this field.",
@@ -128,7 +130,7 @@ const SubmitForm = () => {
         }}
         className='inps'        
         id="outlined-required"
-        label="Phone"
+        label={translations.homepage.labelPhone}
         placeholder="Mobile number"
         {...register("phone", {
           required: "Please fill out this field.",
@@ -167,7 +169,7 @@ const SubmitForm = () => {
           <FormControlLabel
             value="Other"
             control={<Radio sx={{ '&.MuiButtonBase-root': { color: '#FEBD02 !important', '&.MuiRadio-root': { '&.Mui-checked': { color: '#FEBD02 !important' } } } }} />}
-            label="Other"
+            label={translations.homepage.labelOther}
             {...register("contactMethod", { required: true })}
           />
           <br />
@@ -186,7 +188,7 @@ const SubmitForm = () => {
         }}
         className='inps'        
         id="outlined-required"
-        label="Nickname"
+        label={translations.homepage.labelNickname}
         placeholder={isTelegramChecked ? "@" : ""}
         {...register("nickname", { required: "Please fill out this field." })}
       />
@@ -211,7 +213,7 @@ const SubmitForm = () => {
           padding: '1em 7em',
         }}
       >
-        Send
+       {translations.homepage.sendBtn}
       </Button>
     </form>
   );

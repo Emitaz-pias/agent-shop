@@ -24,7 +24,8 @@ const style = {
 
 export default function BasicModal({ open, handleClose}) {
   
-  const {success,setSuccess} = React.useContext(AppContext);  
+  const {success,setSuccess,language} = React.useContext(AppContext);  
+  const translations = require(`../../translations/${language.toLowerCase()}.json`);
 
   return (
     <div>
@@ -33,7 +34,7 @@ export default function BasicModal({ open, handleClose}) {
         onClose={handleClose}
       >
         <Box sx={style}>
-       {success? <Box><h1 className='first-screen__title'>Thanks!</h1><Box color={'grey'} component={'p'}>We received your application and will soon be in touch</Box>          </Box>
+       {success? <Box><h1 className='first-screen__title'>{translations.homepage.thanks}</h1><Box color={'grey'} component={'p'}>{translations.homepage.modalPara}</Box></Box>
        : <Box><SubmitForm/></Box>}
         <Box sx={{paddingLeft:'5em',marginTop:"-3em"}}><CloseIcon sx={{ fontSize: 60 ,color:'gray'}}  onClick={handleClose}/></Box>       
         </Box>
