@@ -10,13 +10,14 @@ import website from '../../images/website.png'
 import email from '../../images/email.png'
 import logo from '../../images/logo.png'
 import './SubmitForm'
-import { pointsArray } from './pointsArry';
 import SubmitForm from './SubmitForm'
 import { useRef } from 'react';
 import { AppContext } from '../../AppContext';
 import { useParams } from 'react-router-dom';
 import FormModal from '../../components/modal/FormModal'
 import { usePointsArray } from './pointsArry';
+import PointsSlider from './PointsSlider';
+
 
 const Homepage = () => {
   const {language, setLanguage,success,setSuccess} = useContext(AppContext);   
@@ -25,7 +26,6 @@ const Homepage = () => {
   const collaborationRef = useRef(null);
   const contactRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const pointsArray = usePointsArray();
   
 
 
@@ -70,15 +70,7 @@ document.title =  translations.homepage.title
         </Grid>
       </Grid>
       <Grid container justifyContent={'space-around'} textAlign={'center'} alignItems='center'>
-
-        {pointsArray.map((point,index) =>(
-            <Grid item lg={2} xs={10} md={6} >
-            <Box component='img' sx={{ width: { lg: '30%', xs: '40%' } }} src={point.image} alt={point.title} />
-            <Box component='h3' sx={{ fontWeight: 'bold', textAlign: 'center' }}>{point.title}</Box>
-          </Grid>
-        )
-        
-        )}
+      <PointsSlider/>
       </Grid>
       <Grid container sx={{ marginTop: '1em', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexWrap: { sm: 'wrap-reverse', lg: 'nowrap', md: 'nowrap', xs: "wrap" } }}>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
