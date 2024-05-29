@@ -15,7 +15,7 @@ const SubmitForm = () => {
   const translations = require(`../../translations/${language.toLowerCase()}.json`);
  
   const createSheetData = (data) => {
-    fetch('https://sheetdb.io/api/v1/k2s66blg4dbv7', {
+    fetch('https://sheetdb.io/api/v1/pl20lfzaa4qm2', {
     method: 'POST',
     headers: {
         'Accept': 'application/json',
