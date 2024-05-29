@@ -30,10 +30,10 @@ useEffect(() => {
     infinite: true,
     slidesToShow: slidesToScroll,
     arrows:false,
-    slidesToScroll: 1,
+    slidesToScroll:1,
     autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
+    speed:1000,
+    autoplaySpeed:3000,
     cssEase: "linear"
   };
 
@@ -43,7 +43,7 @@ useEffect(() => {
     <Box className="slider-container" sx={{ width: '100%', marginTop: '2em' }}>
       <Slider {...settings}>
         {pointsArray.map((point, index) => (
-          <Grid key={index} item lg={6} xs={12} md={6} sx={{ padding: '1em', textAlign: 'center' }}>
+          <Grid key={index} item lg={8} xs={12} md={6} sx={{ padding: '1em', textAlign: 'center' }}>
             <Box component='img' sx={{ width: '50%', margin: '0 auto' }} src={point.image} alt={point.title} />
             <Box component='h3' sx={{ fontWeight: 'bold', textAlign: 'center', marginTop: '0.5em' }}>{point.title}</Box>
           </Grid>
