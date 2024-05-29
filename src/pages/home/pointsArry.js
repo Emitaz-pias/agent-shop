@@ -1,10 +1,10 @@
-import bookmaker from '../../images/bookmaker.png'
-import contries from '../../images/countries.png'
-import fourhk from '../../images/400k.png'
-import bestTerms from '../../images/bestTerms.png'
-import stablePayOuts from '../../images/stablePayout.png'
-import { useContext } from 'react'
-import { AppContext } from '../../AppContext'
+import bookmaker from '../../images/bookmaker.png';
+import contries from '../../images/countries.png';
+import fourhk from '../../images/400k.png';
+import bestTerms from '../../images/bestTerms.png';
+import stablePayOuts from '../../images/stablePayout.png';
+import { useContext } from 'react';
+import { AppContext } from '../../AppContext';
 
 export const usePointsArray = () => {
     const { language } = useContext(AppContext);  

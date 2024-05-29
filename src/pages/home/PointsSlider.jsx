@@ -1,27 +1,50 @@
 import { Box, Grid } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { usePointsArray } from './pointsArry';
 
 const PointsSlider = () => {
+  const [slidesToScroll, setSlidesToScroll] = useState(1);
+  // Function to update slidesToScroll based on window width
+
+ const updateSlidesToScroll = () => {
+  if (window.innerWidth >= 1280) {
+    setSlidesToScroll(5);
+  } else if (window.innerWidth >= 960) {
+    setSlidesToScroll(3);
+  } else {
+    setSlidesToScroll(1);
+  }
+};
+
+useEffect(() => {
+  // Set initial value
+  updateSlidesToScroll();
+
+  // Update value on window resize
+  window.addEventListener('resize', updateSlidesToScroll);
+  return () => window.removeEventListener('resize', updateSlidesToScroll);
+}, []);
+
   const settings = {
-    dots: true,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: slidesToScroll,
+    arrows:false,
     slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
     autoplaySpeed: 2000,
     cssEase: "linear"
   };
+
   const pointsArray = usePointsArray();
 
   return (
-    <Box className="slider-container" sx={{ width: '100%' }}>
+    <Box className="slider-container" sx={{ width: '100%', marginTop: '2em' }}>
       <Slider {...settings}>
         {pointsArray.map((point, index) => (
-          <Grid key={index} item lg={4} xs={10} md={6} sx={{ padding: '1em' }}>
-            <Box component='img' sx={{ width: '10%', margin: '0 auto' }} src={point.image} alt={point.title} />
+          <Grid key={index} item lg={6} xs={12} md={6} sx={{ padding: '1em', textAlign: 'center' }}>
+            <Box component='img' sx={{ width: '50%', margin: '0 auto' }} src={point.image} alt={point.title} />
             <Box component='h3' sx={{ fontWeight: 'bold', textAlign: 'center', marginTop: '0.5em' }}>{point.title}</Box>
           </Grid>
         ))}
