@@ -139,20 +139,27 @@ document.title =  translations.homepage.title
           <Box className='first-screen__title' component='h1'>
             {translations.homepage.heaing5}
           </Box>
-          <Box component='p' sx={{ fontWeight: 'bolder' }}>
-          {translations.homepage.para6}
+          <Box component='ol' sx={{'& li::marker': {color: '#FEBD02'},}} >
+          <Box component='li' sx={{ fontWeight: 'bolder' }}>
+            <Box component='h4' color='#FEBD02'>{translations.homepage.li1}</Box> 
+            <Box component='span'>{translations.homepage.para6}</Box>
           </Box>
-          <Box component='p' sx={{ fontWeight: 'bolder' }}>
-          {translations.homepage.para7}
+          <Box component='li' sx={{ fontWeight: 'bolder' }}>
+            <Box component='h4' color='#FEBD02'>{translations.homepage.li2}</Box> 
+            <Box component='span'>{translations.homepage.para7}</Box>
           </Box>
-          <Box component='p' sx={{ fontWeight: 'bolder' }}>
-          {translations.homepage.para8}
+          <Box component='li' sx={{ fontWeight: 'bolder' }}>
+            <Box component='h4' color='#FEBD02'>{translations.homepage.li3}</Box> 
+            <Box component='span'>{translations.homepage.para8}</Box>
           </Box>
-          <Box component='p' sx={{ fontWeight: 'bolder' }}>
-          {translations.homepage.para9}
+          <Box component='li' sx={{ fontWeight: 'bolder' }}>
+            <Box component='h4' color='#FEBD02'>{translations.homepage.li4}</Box> 
+            <Box component='span'>{translations.homepage.para9}</Box>
           </Box>
-          <Box component='p' sx={{ fontWeight: 'bolder' }}>
-          {translations.homepage.para10}
+          <Box component='li' sx={{ fontWeight: 'bolder' }}>
+            <Box component='h4' color='#FEBD02'>{translations.homepage.li5}</Box> 
+            <Box component='span'>{translations.homepage.para10}</Box>
+          </Box>         
           </Box>
         </Grid>
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
