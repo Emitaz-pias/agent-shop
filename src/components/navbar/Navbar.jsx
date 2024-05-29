@@ -130,8 +130,7 @@ const scrollToViewAndCloseMenu = (scrollToFunction, onCloseFunction) => {
         </MenuItem>
         <MenuItem sx={{padding:'1em 0 0 5em'}} onClick={()=>scrollToViewAndCloseMenu(scrollToContact, handleMenuClose)}>
           <Link
-            style={{ textDecoration: 'none', color: 'white', fontStyle: 'italic', fontSize: '1.5em', fontWeight: 'bold',}}
-            
+            style={{ textDecoration: 'none', color: 'white', fontStyle: 'italic', fontSize: '1.5em', fontWeight: 'bold',}}            
           >
             {translations.homepage.navMenuContacts}
           </Link>
@@ -198,9 +197,9 @@ const scrollToViewAndCloseMenu = (scrollToFunction, onCloseFunction) => {
                 <ReactFlagsSelect                
                   selected={select}
                   onSelect={onSelect}
-                  countries={["GB", "FR", "es", "ES", "pt", "PT", "zh", "CN", "ja", "JP", "th", "TH", "ru", "RU", "az", "AZ","SA", "kr", "KR", "my", "MY"]}
+                  countries={["GB","RU","SA","FR", "es", "ES", "pt", "PT", "zh", "CN", "ja", "JP", "th", "TH", "az", "AZ","kr", "KR", "my", "MY"]}
                   customLabels={{
-                    GB: "EN", FR: "FR", es: "es", ES: "ES", pt: "pt", PT: "PT", CN: "ZH", ZH: "ZH", JP: "JA", JA: "JA", th: "TH", TH: "TH", ru: "RU", RU: "RU", az: "AZ", AZ: "AZ", SA: "AR", AR: "AR", kr: "KR", KR: "KR", my: "MY", MY: "MY"
+                    GB: "EN",RU: "RU",SA: "AR",FR: "FR", es: "es", ES: "ES", pt: "pt", PT: "PT", CN: "ZH", ZH: "ZH", JP: "JA", JA: "JA", th: "TH", TH: "TH", az: "AZ", AZ: "AZ",AR: "AR", kr: "KR", KR: "KR", my: "MY", MY: "MY"
                   }}
                   selectedSize={15}
                   optionsSize={15} />
