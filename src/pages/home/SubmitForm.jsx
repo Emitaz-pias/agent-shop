@@ -10,7 +10,7 @@ import './SubmitForm.css';
 import { AppContext } from '../../AppContext';
 
 const SubmitForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm(); 
+  const { register, reset ,handleSubmit, formState: { errors } } = useForm(); 
   const {success,setSuccess,language} = useContext(AppContext); 
   const translations = require(`../../translations/${language.toLowerCase()}.json`);
  
@@ -38,6 +38,7 @@ const SubmitForm = () => {
   .then((data) => {
     if(data.created ===1){
       setSuccess(true)
+      reset();
     }
   });
 
