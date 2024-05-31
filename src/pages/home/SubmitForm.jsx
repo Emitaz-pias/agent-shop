@@ -157,13 +157,14 @@ const SubmitForm = () => {
           row
           sx={{ width: { lg: "30vw !important", xs: "80vw !important" }, margin: '0em 1em' }}
           className='inps'
+          defaultValue="Telegram"
           value={isTelegramChecked ? "Telegram" : "Other"}
           onChange={handleRadioChange}
         >
           <FormControlLabel
             value="Telegram"
             control={<Radio sx={{ '&.MuiButtonBase-root': { color: '#FEBD02 !important', '&.MuiRadio-root': { '&.Mui-checked': { color: '#FEBD02 !important' } } } }} />}
-            label="Telegram Username"
+            label="Telegram"
             {...register("contactMethod", { required: true })}
           />
           <br />
@@ -190,7 +191,7 @@ const SubmitForm = () => {
         className='inps'        
         id="outlined-required"
         label={translations.homepage.labelNickname}
-        placeholder={isTelegramChecked ? "@ Telegram UserName" : ""}
+        placeholder={isTelegramChecked ? "@ UserName" : ""}
         {...register("nickname", { required: "Please fill out this field." })}
       />
       {errors.nickname && <span className="error-message">{errors.nickname.message}</span>}
