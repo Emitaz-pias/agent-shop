@@ -5,7 +5,7 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
   const [language, setLanguage] = useState('GB');
-  const [success,setSuccess] =useState(false)
+  const [success,setSuccess] =useState(true)
 
   return (
     <AppContext.Provider value={{ language, setLanguage,success,setSuccess }} >

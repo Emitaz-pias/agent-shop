@@ -8,15 +8,16 @@ import { Grid } from '@mui/material';
 
 const style = {
   position: 'absolute',
-  top: '48%',
+  top:{xs:'40%',lg:'30%'},
   left: '50%',
   transform: 'translate(-50%, -50%)',
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'start', // Center the content horizontally
-  bgcolor: '#212121',
-  padding: '2em', // Decreased padding for better mobile display
+  alignItems: 'end', // Center the content horizontally
+  bgcolor: '#212121',  
   borderRadius: '1em',
+  padding:{xs:"0em -1em 0.5em 1em"},
+  color:"#FEBD02"
 };
 
 export default function BasicModal({ open, handleClose }) {
@@ -29,7 +30,7 @@ export default function BasicModal({ open, handleClose }) {
         <Box sx={style}>
         <CloseIcon sx={{ fontSize: 40, color: 'gray', cursor: 'pointer', marginTop: '1em', }} onClick={handleClose} />
           {success ? (
-            <Box sx={{width:{xs:'85vw'}}}>
+            <Box sx={{width:{xs:'85vw'},margin:{xs:'1em'}}}>
               <h2>{translations.homepage.thanks}</h2>
               <p>{translations.homepage.modalPara}</p>
             </Box>

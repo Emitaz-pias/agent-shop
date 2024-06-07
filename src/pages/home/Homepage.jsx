@@ -178,10 +178,7 @@ document.title =  translations.homepage.title
           <Box   component="img" src={submitApplication} sx={{ width: '100%', marginTop:{lg:'-12em'},marginLeft:{lg:'4em'}}} />                          
         </Grid>
         
-        <Grid item sx={{paddingLeft:{lg:'2em'}}}  lg={5} xs={12} md={8} >
-          <Box className='first-screen__title' component='h1'>
-          {translations.homepage.heading7}
-          </Box>
+        <Grid item sx={{paddingLeft:{lg:'2em'}}}  lg={5} xs={12} md={8} >          
           <Box>
            <SubmitForm ></SubmitForm>
           </Box>
