@@ -25,7 +25,7 @@ useEffect(() => {
   window.addEventListener('resize', updateSlidesToScroll);
   return () => window.removeEventListener('resize', updateSlidesToScroll);
 }, []);
-
+//7=g!V:RS[v0NN7s@wjWV
   const settings = {
     infinite: true,
     slidesToShow: slidesToScroll,
@@ -36,7 +36,7 @@ useEffect(() => {
     autoplaySpeed:3000,
     cssEase: "linear"
   };
-
+  
   const pointsArray = usePointsArray();
 
   return (

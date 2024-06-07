@@ -199,6 +199,7 @@ const SubmitForm = () => {
 
       <Button
         type='submit'
+        sx={{ width: { lg: "30vw !important", xs: "80vw !important" },}}
         className='becomeAgentBttton'
         style={{
           backgroundColor: '#FEBD02',
