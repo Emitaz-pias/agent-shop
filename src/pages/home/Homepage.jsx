@@ -187,7 +187,7 @@ document.title =  translations.homepage.title
     
          <Box sx={{ display: 'inline-flex', marginTop:{lg:'-7em'},justifyContent:{lg:'space-around',xs:'center'},alignItems:'center',flexWrap:{lg:'nowrap',xs:'wrap'} }}>
             <Box component='img' sx={{ width:{lg:'25%',xs:'30%'} }} src={logo}></Box>
-             <Box  component="p" sx={{ margin: '1em',textAlign:'center' }}>
+             <Box  component="p" sx={{ margin: '0.8em',textAlign:'center' }}>
               {translations.homepage.footer1}
              <br />
              {translations.homepage.footer2}
