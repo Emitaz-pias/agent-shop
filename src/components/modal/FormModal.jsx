@@ -8,12 +8,12 @@ import { Grid } from '@mui/material';
 
 const style = {
   position: 'absolute',
-  top: '50%',
+  top: '48%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center', // Center the content horizontally
+  alignItems: 'start', // Center the content horizontally
   bgcolor: '#212121',
   padding: '2em', // Decreased padding for better mobile display
   borderRadius: '1em',
@@ -27,10 +27,10 @@ export default function BasicModal({ open, handleClose }) {
     <div>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-        <CloseIcon sx={{ fontSize: 40, color: 'gray', cursor: 'pointer', marginTop: '1em' }} onClick={handleClose} />
+        <CloseIcon sx={{ fontSize: 40, color: 'gray', cursor: 'pointer', marginTop: '1em', }} onClick={handleClose} />
           {success ? (
-            <Box textAlign="center">
-              <h1>{translations.homepage.thanks}</h1>
+            <Box sx={{width:{xs:'85vw'}}}>
+              <h2>{translations.homepage.thanks}</h2>
               <p>{translations.homepage.modalPara}</p>
             </Box>
           ) : (
