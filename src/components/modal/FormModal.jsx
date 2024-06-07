@@ -10,7 +10,7 @@ const style = {
   position: 'absolute',
   top:'50%',
   left: '50%',
-  transform: 'translate(-49%, -48%)',
+  transform: 'translate(-50%, -50%)',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'end', // Center the content horizontally
@@ -30,7 +30,7 @@ export default function BasicModal({ open, handleClose }) {
         <Box sx={style}>
         <CloseIcon sx={{ fontSize: 40, color: 'gray', cursor: 'pointer', marginTop: '0.3em', }} onClick={handleClose} />
           {success ? (
-         <Box>
+         <Box sx={{margin:{xs:'0em 0.2em'}}}>
              <Box sx={{width:{xs:'85vw'}}}>
               <h2>{translations.homepage.thanks}</h2>
               <p>{translations.homepage.modalPara}</p>
