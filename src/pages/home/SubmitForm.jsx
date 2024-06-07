@@ -5,7 +5,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import { Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import './SubmitForm.css';
 import { AppContext } from '../../AppContext';
 
@@ -57,7 +57,11 @@ const SubmitForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <Box>
+      <Box className='first-screen__title' component='h3'>
+          {translations.homepage.heading7}
+      </Box>
+      <form onSubmit={handleSubmit(onSubmit)}>
       <TextField
         sx={{
           width: { lg: "30vw !important", xs: "80vw !important" },
@@ -219,6 +223,8 @@ const SubmitForm = () => {
        {translations.homepage.sendBtn}
       </Button>
     </form>
+    </Box>
+    
   );
 };
 
