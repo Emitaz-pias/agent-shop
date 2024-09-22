@@ -12,6 +12,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Button } from '@mui/material';
+import logo from '../../images/logo.png'
 
 
 const PayementNavbar = () => {
@@ -119,6 +120,7 @@ const PayementNavbar = () => {
         <Box sx={{ flexGrow: 1}}>
             <AppBar sx={{ backgroundColor: 'white !important' }} position="static">
                 <Toolbar>
+                    <Box padding='1em'><Box backgroundColor="black" component={'img'} src={logo} alt='logo'></Box></Box>
                     <Box  sx={{ flexGrow: 1}} />
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <MenuItem>
