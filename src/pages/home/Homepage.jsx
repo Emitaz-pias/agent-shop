@@ -13,10 +13,11 @@ import './SubmitForm'
 import SubmitForm from './SubmitForm'
 import { useRef } from 'react';
 import { AppContext } from '../../AppContext';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import FormModal from '../../components/modal/FormModal'
 import { usePointsArray } from './pointsArry';
 import PointsSlider from './PointsSlider';
+
 
 
 const Homepage = () => {
@@ -195,6 +196,7 @@ document.title =  translations.homepage.title
              </Box>
             </Box>         
       </Grid>
+      <Link to='/payment'>Go To Payment Page</Link>
       <FormModal open={isModalOpen} handleClose={handleCloseModal} />
     </div>
   );
