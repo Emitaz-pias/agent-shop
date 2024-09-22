@@ -68,7 +68,8 @@ document.title =  translations.homepage.title
         <Grid padding={'0.5em'} item lg={6} md={12} xs={12} >
           <Box component='img' sx={{ width: { xs: '100%', lg: '70%', md: '75%' } }} src={firstImm}></Box>
         </Grid>
-      </Grid>
+      </Grid> 
+      {/* asdf */}
       <Grid container justifyContent={'space-around'} textAlign={'center'} alignItems='center'>
       <PointsSlider/>
       </Grid>
