@@ -69,7 +69,7 @@ const DepositForm = () => {
 
   return (
     <div className="form-container">
-      <h2 style={{color:'black'}}>Deposit Form</h2>
+      <h2  style={{color:'black',fontWeight:'200',fontFamily:'poppins'}}>Deposit Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="agentId">Agent User ID</label>
@@ -142,7 +142,7 @@ const DepositForm = () => {
           {errors.transactionId && <small className="error">{errors.transactionId}</small>}
         </div>
 
-        <button type="submit">Submit</button>
+        <button style={{width:'6em'}} type="submit">Submit</button>
       </form>
 
       {success && <p className="success-message">Request is sent. Please wait patiently.</p>}

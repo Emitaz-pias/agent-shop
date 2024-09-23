@@ -11,7 +11,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 
 const PayementNavbar = () => {
     const appBarStyles = {
-        backgroundColor: 'black',
+        backgroundColor: 'black',        
     };
 
     return (
@@ -23,7 +23,7 @@ const PayementNavbar = () => {
                         display: 'flex',
                         alignItems: 'center',
                         textAlign: 'center',
-                        justifyContent: 'space-around'
+                        justifyContent: 'space-between'
                     }}
                 >
                     {/* Logo */}
@@ -52,7 +52,7 @@ const PayementNavbar = () => {
                             flexGrow: 1
                         }}
                     >
-                        <MenuItem>
+                        {/* <MenuItem>
                             <Link
                                 style={{
                                     textDecoration: 'none',
@@ -65,7 +65,7 @@ const PayementNavbar = () => {
                             >
                                 Add New Card
                             </Link>
-                        </MenuItem>
+                        </MenuItem> */}
                         <MenuItem>
                             <Link
                                 style={{
