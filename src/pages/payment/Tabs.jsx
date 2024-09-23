@@ -9,11 +9,7 @@ import Box from '@mui/material/Box';
 import SimpleTable from './Table';
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-  const appBarStyles = {
-    backgroundColor: 'black',
-};
-
+  const { children, value, index, ...other } = props;  
   return (
     <div
       role="tabpanel"
@@ -57,7 +53,7 @@ const SelectTabs =()=> {
 };
 
   return (
-    <Box sx={{ bgcolor: 'none', width: 500 }}>
+    <Box sx={{ bgcolor: 'none', maxWidth:'100vw' }}>
       <AppBar style={appBarStyles}  position="static">
         <Tabs
           value={value}

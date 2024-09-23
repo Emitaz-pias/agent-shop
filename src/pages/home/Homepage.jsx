@@ -194,8 +194,7 @@ document.title =  translations.homepage.title
              {translations.homepage.footer2}
              </Box>
             </Box>         
-      </Grid>
-      <Link to='/payment'>Go To Payment Page</Link>
+      </Grid>  
       <FormModal open={isModalOpen} handleClose={handleCloseModal} />
     </div>
   );
