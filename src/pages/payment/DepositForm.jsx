@@ -1,136 +1,152 @@
-import React from 'react';
-import {
-  Box,
-  TextField,
-  MenuItem,
-  Select,
-  InputLabel,
-  FormControl,
-  Button,
-  Typography,
-} from '@mui/material';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
+import './DepositForm.css';
 
 const DepositForm = () => {
-  const { register, handleSubmit, reset, formState: { errors } } = useForm();
-  const [success, setSuccess] = React.useState(false); // State for form submission success
+  const [formData, setFormData] = useState({
+    agentId: '',
+    depositType: '',
+    selectChain: '',
+    depositedAmount: '',
+    transactionId: '',
+  });
+
+  const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState(false);
 
   const createSheetData = async (data) => {
     try {
       const response = await fetch('https://sheetdb.io/api/v1/63pioje7m44nq', {
         method: 'POST',
         headers: {
-          'Accept': 'application/json',
+          Accept: 'application/json',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          data: [
-            {
-              agentId: data.agentId,
-              depositType: data.depositType,
-              selectChain: data.selectChain,
-              depositedAmount: data.depositedAmount,
-              transactionId: data.transactionId,
-            },
-          ],
+          data: [data],
         }),
       });
       const result = await response.json();
       if (result.created === 1) {
         setSuccess(true);
-        reset(); // Reset the form
+        setFormData({
+          agentId: '',
+          depositType: '',
+          selectChain: '',
+          depositedAmount: '',
+          transactionId: '',
+        });
       }
     } catch (error) {
       alert('An error occurred while submitting the form: ' + error.message);
     }
   };
 
-  const onSubmit = (data) => {
-    createSheetData(data);
+  const validateForm = () => {
+    let formErrors = {};
+    if (!formData.agentId) formErrors.agentId = 'Agent User ID is required';
+    if (!formData.depositType) formErrors.depositType = 'Deposit Type is required';
+    if (!formData.selectChain) formErrors.selectChain = 'Select Chain is required';
+    if (!formData.depositedAmount) formErrors.depositedAmount = 'Deposited Amount is required';
+    if (!formData.transactionId) formErrors.transactionId = 'Transaction ID/User ID is required';
+
+    setErrors(formErrors);
+    return Object.keys(formErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      createSheetData(formData);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
-    <Box
-      component="form"
-      onSubmit={handleSubmit(onSubmit)}
-      sx={{ maxWidth: 400, mx: 'auto', p: 2 }}
-    >
-      <Typography variant="h6" align="center" sx={{ mb: 2 }}>
-        Deposit Form
-      </Typography>
+    <div className="form-container">
+      <h2>Deposit Form</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="agentId">Agent User ID</label>
+          <input
+            type="text"
+            id="agentId"
+            name="agentId"
+            value={formData.agentId}
+            onChange={handleInputChange}
+            placeholder="Client"
+          />
+          {errors.agentId && <small className="error">{errors.agentId}</small>}
+        </div>
 
-      <TextField
-        label="Agent User ID"
-        placeholder="Client"
-        variant="outlined"
-        {...register('agentId', { required: 'Agent User ID is required' })}
-        sx={{ mb: 2 }}
-        error={!!errors.agentId}
-        helperText={errors.agentId ? errors.agentId.message : ''}
-      />
+        <div className="form-group">
+          <label htmlFor="depositType">Type of Deposit</label>
+          <select
+            id="depositType"
+            name="depositType"
+            value={formData.depositType}
+            onChange={handleInputChange}
+          >
+            <option value="">Select</option>
+            <option value="1st payments">1st Payments</option>
+            <option value="Regular deposit">Regular Deposit</option>
+          </select>
+          {errors.depositType && <small className="error">{errors.depositType}</small>}
+        </div>
 
-      <FormControl variant="outlined" fullWidth sx={{ mb: 2 }} error={!!errors.depositType}>
-        <InputLabel>Type of Deposit</InputLabel>
-        <Select
-          label="Type of Deposit"
-          {...register('depositType', { required: 'Deposit Type is required' })}
-          defaultValue=""
-        >
-          <MenuItem value="1st payments">1st Payments</MenuItem>
-          <MenuItem value="Regular deposit">Regular Deposit</MenuItem>
-        </Select>
-        {errors.depositType && (
-          <Typography variant="caption" color="error">{errors.depositType.message}</Typography>
-        )}
-      </FormControl>
+        <div className="form-group">
+          <label htmlFor="selectChain">Select Chain</label>
+          <select
+            id="selectChain"
+            name="selectChain"
+            value={formData.selectChain}
+            onChange={handleInputChange}
+          >
+            <option value="">Select</option>
+            <option value="USDT (TRC 20)">USDT (TRC 20)</option>
+            <option value="USDT (BEP 20)">USDT (BEP 20)</option>
+            <option value="BTC">BTC</option>
+            <option value="ETH">ETH</option>
+          </select>
+          {errors.selectChain && <small className="error">{errors.selectChain}</small>}
+        </div>
 
-      <FormControl variant="outlined" fullWidth sx={{ mb: 2 }} error={!!errors.selectChain}>
-        <InputLabel>Select Chain</InputLabel>
-        <Select
-          label="Select Chain"
-          {...register('selectChain', { required: 'Select Chain is required' })}
-          defaultValue=""
-        >
-          <MenuItem value="USDT (TRC 20)">USDT (TRC 20)</MenuItem>
-          <MenuItem value="USDT (BEP 20)">USDT (BEP 20)</MenuItem>
-          <MenuItem value="BTC">BTC</MenuItem>
-          <MenuItem value="ETH">ETH</MenuItem>
-        </Select>
-        {errors.selectChain && (
-          <Typography variant="caption" color="error">{errors.selectChain.message}</Typography>
-        )}
-      </FormControl>
+        <div className="form-group">
+          <label htmlFor="depositedAmount">Deposited Amount</label>
+          <input
+            type="number"
+            id="depositedAmount"
+            name="depositedAmount"
+            value={formData.depositedAmount}
+            onChange={handleInputChange}
+            placeholder="Amount"
+          />
+          {errors.depositedAmount && <small className="error">{errors.depositedAmount}</small>}
+        </div>
 
-      <TextField
-        label="Deposited Amount"
-        placeholder="Amount"
-        variant="outlined"
-        {...register('depositedAmount', { required: 'Deposited Amount is required' })}
-        sx={{ mb: 2 }}
-        error={!!errors.depositedAmount}
-        helperText={errors.depositedAmount ? errors.depositedAmount.message : ''}
-      />
+        <div className="form-group">
+          <label htmlFor="transactionId">Transaction ID/User ID</label>
+          <input
+            type="text"
+            id="transactionId"
+            name="transactionId"
+            value={formData.transactionId}
+            onChange={handleInputChange}
+            placeholder="ID"
+          />
+          {errors.transactionId && <small className="error">{errors.transactionId}</small>}
+        </div>
 
-      <TextField
-        label="Transaction ID/User ID"
-        placeholder="ID"
-        variant="outlined"
-        {...register('transactionId', { required: 'Transaction ID/User ID is required' })}
-        sx={{ mb: 2 }}
-        error={!!errors.transactionId}
-        helperText={errors.transactionId ? errors.transactionId.message : ''}
-      />
+        <button type="submit">Submit</button>
+      </form>
 
-      <Button variant="contained" type="submit" color="primary" fullWidth>
-        Submit
-      </Button>
-
-      {success && (
-        <Typography variant="h6" align="center" sx={{ color: 'green', mt: 2 }}>
-          Request is sent. Please wait patiently.
-        </Typography>
-      )}
-    </Box>
+      {success && <p className="success-message">Request is sent. Please wait patiently.</p>}
+    </div>
   );
 };
 

@@ -10,7 +10,7 @@ const PayementPage = () => {
         <Box sx={{backgroundColor:'white'}}>
         <PaymentNavbar/>       
         <Box  component={'h1'} >Crypto Top-up</Box>
-        <Box textAlign={'center'} onClick={() => setReveal(!reveal)}  sx={{cursor:'pointer'}} component={'h6'} color='violet'>Click To Reveal Wallets</Box>
+        <Box textAlign={'center'} onClick={() => setReveal(!reveal)}  sx={{cursor:'pointer'}} component={'h3'} color='violet'>Click To Reveal Wallets</Box>
         {reveal?<SelectTabs/>:<DepositForm/>}
         
         </Box>

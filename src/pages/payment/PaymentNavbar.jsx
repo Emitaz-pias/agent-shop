@@ -1,161 +1,107 @@
-
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
+import CloseIcon from '@mui/icons-material/Close';
+import { Link } from 'react-router-dom';
+import logo from '../../images/logo.png';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import { Button } from '@mui/material';
-import logo from '../../images/logo.png'
-
 
 const PayementNavbar = () => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-    const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-    const handleProfileMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
+    const appBarStyles = {
+        backgroundColor: 'black',
     };
-
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
-
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-        handleMobileMenuClose();
-    };
-
-    const menuId = 'primary-search-account-menu';
-    const renderMenu = (
-        <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-            id={menuId}
-            keepMounted
-            transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-            open={isMenuOpen}
-            onClose={handleMenuClose}
-        >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-        </Menu>
-    );
-
-    const mobileMenuId = 'primary-search-account-menu-mobile';
-    const renderMobileMenu = (
-        <Menu
-            anchorEl={mobileMoreAnchorEl}
-            anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-            id={mobileMenuId}
-            keepMounted
-            transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-            open={isMobileMenuOpen}
-            onClose={handleMobileMenuClose}
-        > <MenuItem>
-                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="error">
-                        <MailIcon />
-                    </Badge>
-                </IconButton>
-                <p>Add New Card</p>
-            </MenuItem>
-            <MenuItem>
-                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                    <Badge badgeContent={4} color="error">
-                        <MailIcon />
-                    </Badge>
-                </IconButton>
-                <p>Top Up</p>
-            </MenuItem>
-            <MenuItem>
-                <IconButton
-                    size="large"
-                    aria-label="show 17 new notifications"
-                    color="inherit"
-                >
-                    <Badge badgeContent={17} color="error">
-                        <NotificationsIcon />
-                    </Badge>
-                </IconButton>
-                <p>Notifications</p>
-            </MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <IconButton
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="primary-search-account-menu"
-                    aria-haspopup="true"
-                    color="inherit"
-                >
-                    <AccountCircle />
-                </IconButton>
-                <p>Profile</p>
-            </MenuItem>
-        </Menu>
-    );
 
     return (
-        <Box sx={{ flexGrow: 1}}>
-            <AppBar sx={{ backgroundColor: 'white !important' }} position="static">
-                <Toolbar>
-                    <Box padding='1em'><Box backgroundColor="black" component={'img'} src={logo} alt='logo'></Box></Box>
-                    <Box  sx={{ flexGrow: 1}} />
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+        <Box>
+            <CssBaseline />
+            <AppBar style={appBarStyles}>
+                <Toolbar
+                    sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        justifyContent: 'space-around'
+                    }}
+                >
+                    {/* Logo */}
+                    <Typography sx={{ order: { xs: 1, lg: 1 } }} variant="h3" component="div">
+                        <Link style={{ textDecoration: 'none', color: 'black' }} to="/">
+                            <Box
+                                component={'img'}
+                                sx={{
+                                    width: { xs: '2em', lg: '2.8em' },
+                                    paddingBottom: { lg: '0.1em', xs: '0.2em' }
+                                }}
+                                src={logo}
+                                alt="logo"
+                            />
+                        </Link>
+                    </Typography>
+
+                    {/* Navigation Links */}
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: 'white',
+                            order: { xs: 2, lg: 2 },
+                            flexGrow: 1
+                        }}
+                    >
                         <MenuItem>
-                            <Button sx={{backgroundColor:'purple',color:'white',padding:'0.5em 2em'}} >
-                                <MailIcon />
+                            <Link
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'white',
+                                    fontStyle: 'italic',
+                                    fontSize: '1em',
+                                    fontWeight: 'bold'
+                                }}
+                                to="#"
+                            >
                                 Add New Card
-                            </Button>
-                            
+                            </Link>
                         </MenuItem>
                         <MenuItem>
-                            <Button  sx={{backgroundColor:'purple',color:'white',padding:'0.5em 2em'}} >
-                                <MailIcon />
-                                Top Up
-                            </Button>
+                            <Link
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'white',
+                                    fontStyle: 'italic',
+                                    fontSize: '1em',
+                                    fontWeight: 'bold'
+                                }}
+                                to="#"
+                            >
+                               Top Up
+                            </Link>
                         </MenuItem>
-                        <Button
-                        >
-                            <NotificationsIcon />
-                        </Button>
-                        <Button
-                        >
-                            <AccountCircle />
-                        </Button>
-                    </Box>
-                    <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                        <Button
-                        >
-                            <MoreIcon />
-                        </Button>
+                        <MenuItem>
+                            <Link
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'white',
+                                    fontStyle: 'italic',
+                                    fontSize: '1em',
+                                    fontWeight: 'bold'
+                                }}
+                                to="#"
+                            >
+                                <NotificationsIcon />
+                            </Link>
+                        </MenuItem>
                     </Box>
                 </Toolbar>
             </AppBar>
-            {renderMobileMenu}
-            {renderMenu}
+            <Toolbar />
         </Box>
     );
-}
+};
+
 export default PayementNavbar;
