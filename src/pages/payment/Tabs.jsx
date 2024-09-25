@@ -9,8 +9,7 @@ import Box from '@mui/material/Box';
 import SimpleTable from './Table';
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
+  const { children, value, index, ...other } = props;  
   return (
     <div
       role="tabpanel"
@@ -48,10 +47,14 @@ const SelectTabs =()=> {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const appBarStyles = {
+    backgroundColor: 'white',
+    color:'grey'
+};
 
   return (
-    <Box sx={{ bgcolor: 'none', width: 500 }}>
-      <AppBar position="static">
+    <Box sx={{ bgcolor: 'none', maxWidth:'100vw' }}>
+      <AppBar style={appBarStyles}  position="static">
         <Tabs
           value={value}
           onChange={handleChange}
@@ -67,7 +70,7 @@ const SelectTabs =()=> {
       </AppBar>
       <TabPanel value={value} index={0} dir={theme.direction}>
        <Box>
-       <h1>Crypto Top-up</h1>
+       <h1 style={{color:'black'}}>Crypto Top-up</h1>
        <br />
        <SimpleTable/>
        </Box>

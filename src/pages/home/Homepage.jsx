@@ -13,15 +13,14 @@ import './SubmitForm'
 import SubmitForm from './SubmitForm'
 import { useRef } from 'react';
 import { AppContext } from '../../AppContext';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import FormModal from '../../components/modal/FormModal'
-import { usePointsArray } from './pointsArry';
 import PointsSlider from './PointsSlider';
 
 
 
 const Homepage = () => {
-  const {language, setLanguage,success,setSuccess} = useContext(AppContext);   
+  const {language} = useContext(AppContext);   
   const translations = require(`../../translations/${language.toLowerCase()}.json`);
   const aboutUsRef = useRef(null);
   const collaborationRef = useRef(null);
@@ -195,8 +194,7 @@ document.title =  translations.homepage.title
              {translations.homepage.footer2}
              </Box>
             </Box>         
-      </Grid>
-      <Link to='/payment'>Go To Payment Page</Link>
+      </Grid>  
       <FormModal open={isModalOpen} handleClose={handleCloseModal} />
     </div>
   );
