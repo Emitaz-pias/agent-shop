@@ -93,7 +93,7 @@ const DepositForm = () => {
             onChange={handleInputChange}
           >
             <option value="">Select</option>
-            <option value="1st payments">1st Payments</option>
+            <option value="1st payments">Pre Payments</option>
             <option value="Regular deposit">Regular Deposit</option>
           </select>
           {errors.depositType && <small className="error">{errors.depositType}</small>}

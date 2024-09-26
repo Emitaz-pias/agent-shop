@@ -23,7 +23,7 @@ const PayementNavbar = () => {
                         display: 'flex',
                         alignItems: 'center',
                         textAlign: 'center',
-                        justifyContent: 'space-between'
+                        justifyContent: 'space-between',                     
                     }}
                 >
                     {/* Logo */}
@@ -66,7 +66,7 @@ const PayementNavbar = () => {
                                 Add New Card
                             </Link>
                         </MenuItem> */}
-                        <MenuItem>
+                        {/* <MenuItem>
                             <Link
                                 style={{
                                     textDecoration: 'none',
@@ -79,7 +79,7 @@ const PayementNavbar = () => {
                             >
                                Top Up
                             </Link>
-                        </MenuItem>
+                        </MenuItem> */}
                         <MenuItem>
                             <Link
                                 style={{
