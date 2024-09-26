@@ -18,14 +18,7 @@ const PayementNavbar = () => {
         <Box>
             <CssBaseline />
             <AppBar style={appBarStyles}>
-                <Toolbar
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        textAlign: 'center',
-                        justifyContent: 'space-between',                     
-                    }}
-                >
+                <Toolbar>
                     {/* Logo */}
                     <Typography sx={{ order: { xs: 1, lg: 1 } }} variant="h3" component="div">
                         <Link style={{ textDecoration: 'none', color: 'black' }} to="/">
@@ -46,40 +39,12 @@ const PayementNavbar = () => {
                         sx={{
                             display: 'flex',
                             alignItems: 'center',
-                            justifyContent: 'center',
+                            justifyContent: 'end',
                             color: 'white',
                             order: { xs: 2, lg: 2 },
                             flexGrow: 1
                         }}
-                    >
-                        {/* <MenuItem>
-                            <Link
-                                style={{
-                                    textDecoration: 'none',
-                                    color: 'white',
-                                    fontStyle: 'italic',
-                                    fontSize: '1em',
-                                    fontWeight: 'bold'
-                                }}
-                                to="#"
-                            >
-                                Add New Card
-                            </Link>
-                        </MenuItem> */}
-                        {/* <MenuItem>
-                            <Link
-                                style={{
-                                    textDecoration: 'none',
-                                    color: 'white',
-                                    fontStyle: 'italic',
-                                    fontSize: '1em',
-                                    fontWeight: 'bold'
-                                }}
-                                to="#"
-                            >
-                               Top Up
-                            </Link>
-                        </MenuItem> */}
+                    >                        
                         <MenuItem>
                             <Link
                                 style={{
