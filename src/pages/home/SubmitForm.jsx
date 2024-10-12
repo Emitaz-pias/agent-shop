@@ -15,7 +15,7 @@ import { AppContext } from '../../AppContext';
   const translations = require(`../../translations/${language.toLowerCase()}.json`);
  
   const createSheetData = (data) => {
-    fetch('https://sheetdb.io/api/v1/n5fjzxbfyd2zo', {
+    fetch('https://sheetdb.io/api/v1/gcswd3wirgcj1', {
     method: 'POST',
     headers: {
         'Accept': 'application/json',
